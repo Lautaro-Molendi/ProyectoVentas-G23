@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectoventasg23.Entidades;
 
-/**
- *
- * @author suyay
- */
 public class Producto {
+    
+    int idProducto;
+    String nombreProducto;
+    String Descripcion; 
+    double precioActual;
+    int stock;
+    boolean estado;
     
 }
