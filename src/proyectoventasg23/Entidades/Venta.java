@@ -12,6 +12,13 @@ public class Venta {
     public Venta() {
     }
 
+    public Venta(Cliente cliente, LocalDate FechaVenta) {
+        this.cliente = cliente;
+        this.FechaVenta = FechaVenta;
+    }
+    
+    
+
     public Venta(int idVenta, Cliente cliente, LocalDate FechaVenta) {
         this.idVenta = idVenta;
         this.cliente = cliente;
@@ -44,7 +51,7 @@ public class Venta {
 
     @Override
     public String toString() {
-        return "Venta{" + "idVenta=" + idVenta + ", cliente=" + cliente + ", FechaVenta=" + FechaVenta + '}';
+        return "Venta n°: " + idVenta + ", cliente: " + cliente + ", FechaVenta:" + FechaVenta ;
     }
    
    

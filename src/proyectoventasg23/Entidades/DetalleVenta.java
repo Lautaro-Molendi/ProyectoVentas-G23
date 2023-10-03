@@ -11,6 +11,15 @@ public class DetalleVenta {
     public DetalleVenta() {
     }
 
+    public DetalleVenta(int cantidad, Venta venta, double precioVenta, Producto producto) {
+        this.cantidad = cantidad;
+        this.venta = venta;
+        this.precioVenta = precioVenta;
+        this.producto = producto;
+    }
+    
+    
+
     public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, double precioVenta, Producto producto) {
         this.idDetalleVenta = idDetalleVenta;
         this.cantidad = cantidad;
@@ -61,7 +70,7 @@ public class DetalleVenta {
 
     @Override
     public String toString() {
-        return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", cantidad=" + cantidad + ", venta=" + venta + ", precioVenta=" + precioVenta + ", producto=" + producto + '}';
+        return "Detalle n°: "+ idDetalleVenta + ", cantidad: " + cantidad + ", venta:" + venta + ", precioVenta:" + precioVenta + ", producto: " + producto;
     }
     
     
