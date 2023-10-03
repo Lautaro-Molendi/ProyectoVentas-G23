@@ -13,8 +13,8 @@ public class ProyectoVentasG23 {
     Connection connection = Conexion.getConexion();
         Producto p1 = new Producto (1,"azucar","alimento",700, 16, true);
       ProductoData pD = new ProductoData ();
-      //  pD.guardarProducto(p1);
-        pD.eliminarProducto(1);
+       //pD.guardarProducto(p1);
+        pD.eliminarProducto(11);
     }
     
 }
