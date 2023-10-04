@@ -57,5 +57,24 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "no se pudo acceder a la tabla producto");
         }
 }
-    
+    public void modificarProducto(Producto producto){
+        String sql = "UPDATE producto SET nombreProducto= ?, descripcion= ?, precioActual= ?, stock= ?"
+                + " WHERE idProducto= ? ";
+        
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, producto.getNombreProducto());
+            ps.setString(2, producto.getDescripcion());
+            ps.setDouble (3, producto.getPrecioActual());
+            ps.setInt(4, producto.getStock());
+            ps.setInt(5, producto.getIdProducto());
+            int exito = ps.executeUpdate();
+            
+            if (exito==1){
+                JOptionPane.showMessageDialog(null, "producto modificado");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudo acceder a la tabla producto");
+        }
+      }  
 }
