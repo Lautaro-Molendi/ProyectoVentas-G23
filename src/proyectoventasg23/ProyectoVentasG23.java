@@ -16,7 +16,9 @@ public class ProyectoVentasG23 {
        //pD.guardarProducto(p1);
         //pD.eliminarProducto(11);
         //pD.modificarProducto(p1);
-        System.out.println(pD.listarProducto());
+       // System.out.println(pD.listarProducto());
+        System.out.println(pD.buscarProducto(6)); 
+       
     }
     
 }

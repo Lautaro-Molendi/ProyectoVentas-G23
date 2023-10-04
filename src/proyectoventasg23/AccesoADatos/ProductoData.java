@@ -92,8 +92,7 @@ public class ProductoData {
             producto.setNombreProducto(rs.getString("nombreProducto"));
             producto.setDescripcion(rs.getString("descripcion"));
             producto.setPrecioActual(rs.getDouble("precioActual"));
-            producto.setStock(rs.getInt("stock"));
-               
+            producto.setStock(rs.getInt("stock"));   
             productos.add(producto);
              
         }
@@ -104,5 +103,29 @@ public class ProductoData {
         }
     return productos;
   } 
+    
+  public Producto buscarProducto (int id){
+      Producto producto =null;
+    String sql = "SELECT nombreProducto, descripcion, precioActual, stock"
+            + " FROM producto WHERE idProducto = ? AND estado = 1";
+    PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+            producto = new Producto();
+            producto.setIdProducto(id);
+            producto.setNombreProducto(rs.getString("nombreProducto"));
+            producto.setDescripcion(rs.getString("descripcion"));
+            producto.setPrecioActual(rs.getDouble("precioActual"));
+            producto.setStock(rs.getInt("stock"));      
+        }
+         ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudo acceder a la tabla producto");
+        }
+    return producto;
+  }   
     
 }
