@@ -11,11 +11,12 @@ public class ProyectoVentasG23 {
    
     public static void main(String[] args) {
     Connection connection = Conexion.getConexion();
-     Producto p1 = new Producto (6, "azucar", "alimento seco", 750, 16, true);
+    // Producto p1 = new Producto (6, "azucar", "alimento seco", 750, 16, true);
       ProductoData pD = new ProductoData ();
        //pD.guardarProducto(p1);
         //pD.eliminarProducto(11);
-        pD.modificarProducto(p1);
+        //pD.modificarProducto(p1);
+        System.out.println(pD.listarProducto());
     }
     
 }
