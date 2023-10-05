@@ -101,7 +101,7 @@ public class ClienteData {
   } 
       public Cliente buscarCliente(int id) {
         Cliente cliente = null;
-        String sql = "SELECT apellido, nombre, domicilio, telefono,"
+        String sql = "SELECT apellido, nombre, domicilio, telefono"
                 + " FROM cliente WHERE idCliente = ? ";
         PreparedStatement ps = null;
         try {
