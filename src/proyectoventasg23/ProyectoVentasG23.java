@@ -2,6 +2,7 @@
 package proyectoventasg23;
 
 import java.sql.Connection;
+import java.time.LocalDate;
 import proyectoventasg23.AccesoADatos.Conexion;
 import proyectoventasg23.AccesoADatos.*;
 import proyectoventasg23.Entidades.*;
@@ -22,12 +23,22 @@ public class ProyectoVentasG23 {
        //Cliente c1= new Cliente("Gomez", "Carlos", "Rosas 888", "228154268");
      //  Cliente c2= new Cliente("Perez", "Mario", "Mitre 333", "2265982268");
        // Cliente c3= new Cliente(3,"Martinez", "Luis", "Maipu 2020", "365154268");
-        ClienteData cd= new ClienteData();
+        //ClienteData cd= new ClienteData();
        //cd.guardarCliente(c3);
         //cd.modificarCliente(c1);
       //  cd.eliminarCliente(1);
         //System.out.print(cd.listarCliente());
           //cd.buscarCliente(3);
+    
+   //Cliente c= new Cliente ("Gomez", "Carlos", "Rosas 888", "228154268"); 
+   //Venta v= new Venta(5, c, LocalDate.of(2022,04,22) );
+    //Producto p= new Producto(1, "azucar", "alimento seco", 750, 16, true);
+    //DetalleVenta dV= new DetalleVenta (1, 12, v, 1000,  p);
+    //DetalleVentaData dVD=new DetalleVentaData();
+    //dVD.guardarDetalleVenta(dV);
+    //dVD.eliminarDetalleVenta(1);
+    //dVD.modificarDetalleVenta(dV);
+        //System.out.println(dVD.listarDetalleVenta());
     }
     
 }
