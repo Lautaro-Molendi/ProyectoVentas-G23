@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import proyectoventasg23.Entidades.*;
 
+
 public class VentaData {
     
     private Connection connection = null;
@@ -74,7 +75,9 @@ public class VentaData {
     
    public List<Venta> listarVentas() {
     List<Venta> ventas = new ArrayList<>();
-    String sql = "SELECT idVenta, idCliente, fechaVenta FROM venta";
+    String sql = "SELECT v.idVenta, v.fechaVenta, c.idCliente, c.apellido, c.nombre, c.domicilio, c.telefono " +
+                 "FROM venta v " +
+                 "INNER JOIN cliente c ON v.idCliente = c.idCliente";
 
     try {
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -82,10 +85,14 @@ public class VentaData {
         while (rs.next()) {
             Venta venta = new Venta();
             venta.setIdVenta(rs.getInt("idVenta"));
-            int idCliente = rs.getInt("idCliente");
-            ClienteData clienteData = new ClienteData();
-            Cliente cliente = clienteData.buscarCliente(idCliente);
-            
+
+            Cliente cliente = new Cliente();
+            cliente.setIdCliente(rs.getInt("idCliente"));
+            cliente.setApellido(rs.getString("apellido"));
+            cliente.setNombre(rs.getString("nombre"));
+            cliente.setDomicilio(rs.getString("domicilio"));
+            cliente.setTelefono(rs.getString("telefono"));
+
             venta.setCliente(cliente);
             venta.setFechaVenta(rs.getDate("fechaVenta").toLocalDate());
             ventas.add(venta);
@@ -96,6 +103,7 @@ public class VentaData {
     }
     return ventas;
 }
+
 
 public Venta buscarVenta(int id) {
     Venta venta = null;
@@ -110,8 +118,7 @@ public Venta buscarVenta(int id) {
             venta.setIdVenta(id);
             int idCliente = rs.getInt("idCliente");
             ClienteData clienteData = new ClienteData();
-            Cliente cliente = clienteData.buscarCliente(idCliente); //tiene un problema para acceder al cleinte.
-            
+            Cliente cliente = clienteData.buscarCliente(idCliente); 
             venta.setCliente(cliente);
             venta.setFechaVenta(rs.getDate("fechaVenta").toLocalDate());
         } else {
