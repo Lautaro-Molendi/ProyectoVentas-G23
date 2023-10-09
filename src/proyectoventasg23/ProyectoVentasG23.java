@@ -30,24 +30,13 @@ public class ProyectoVentasG23 {
         //System.out.print(cd.listarCliente());
           //cd.buscarCliente(3);
     
-   //Cliente c= new Cliente ("Gomez", "Carlos", "Rosas 888", "228154268"); 
-   //Venta v= new Venta(5, c, LocalDate.of(2022,04,22) );
-    //Producto p= new Producto(1, "azucar", "alimento seco", 750, 16, true);
-    //DetalleVenta dV= new DetalleVenta (1, 12, v, 1000,  p);
-    //DetalleVentaData dVD=new DetalleVentaData();
-    //dVD.guardarDetalleVenta(dV);
-    //dVD.eliminarDetalleVenta(1);
-    //dVD.modificarDetalleVenta(dV);
-        //System.out.println(dVD.listarDetalleVenta());
         
-    //Cliente c= new Cliente ("Gomez", "Carlos", "Rosas 888", "228154268"); 
-    //Venta v= new Venta(5, c, LocalDate.of(2022,04,22) );
-    //Producto p= new Producto(1, "azucar", "alimento seco", 750, 16, true);
-    //DetalleVenta dV= new DetalleVenta (20, 12, v, 1000,  p);
+
     //DetalleVentaData dVD=new DetalleVentaData();
     //dVD.guardarDetalleVenta(dV);
     //dVD.eliminarDetalleVenta(20);
     //dVD.modificarDetalleVenta(dV);
+    //System.out.println(dVD.buscarDetalleVenta(11));
     //System.out.println(dVD.listarDetalleVenta());
     
     //Cliente c= new Cliente ("Gomez", "Carlos", "Rosas 888", "228154268"); 

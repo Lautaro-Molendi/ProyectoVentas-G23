@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import proyectoventasg23.Entidades.DetalleVenta;
 import proyectoventasg23.Entidades.Producto;
 import proyectoventasg23.Entidades.Venta;
-import proyectoventasg23.Entidades.Cliente;
 
 public class DetalleVentaData {
     private Connection connection = null;
@@ -80,61 +79,52 @@ public class DetalleVentaData {
         }
     }
 
-   public List<DetalleVenta> listarDetalleVenta() {
-    List<DetalleVenta> detallesVenta = new ArrayList<DetalleVenta>();
-    String sql = "SELECT dv.idDetalleVenta, dv.cantidad, dv.precioVenta, v.idCliente, v.fechaVenta, p.idProducto, p.nombreProducto, p.descripcion, p.precioActual, p.stock, p.estado " +
-                 "FROM detalleVenta dv " +
-                 "INNER JOIN venta v ON dv.idVenta = v.idVenta " +
-                 "INNER JOIN producto p ON dv.idProducto = p.idProducto";
-    
-    try {
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            DetalleVenta detalleVenta = new DetalleVenta();
-            detalleVenta.setIdDetalleVenta(rs.getInt("idDetalleVenta"));
-            detalleVenta.setCantidad(rs.getInt("cantidad"));
-            detalleVenta.setPrecioVenta(rs.getDouble("precioVenta"));
 
-            Venta venta = new Venta();
-            venta.setIdVenta(rs.getInt("idVenta"));
+public List<DetalleVenta> listarDetalleVenta() {
+        List<DetalleVenta> detallesVenta = new ArrayList<>();
+        String sql = "SELECT dv.idDetalleVenta, dv.cantidad, dv.precioVenta, v.idVenta, p.idProducto " +
+                     "FROM detalleVenta dv " +
+                     "INNER JOIN venta v ON dv.idVenta = v.idVenta " +
+                     "INNER JOIN producto p ON dv.idProducto = p.idProducto";
 
-            Cliente cliente = new Cliente();
-            cliente.setIdCliente(rs.getInt("idCliente"));
-            venta.setCliente(cliente);
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                DetalleVenta detalleVenta = new DetalleVenta();
+                detalleVenta.setIdDetalleVenta(rs.getInt("idDetalleVenta"));
+                detalleVenta.setCantidad(rs.getInt("cantidad"));
+                detalleVenta.setPrecioVenta(rs.getDouble("precioVenta"));
 
-            venta.setFechaVenta(rs.getDate("fechaVenta").toLocalDate());
-            detalleVenta.setVenta(venta);
+                Venta venta = new Venta();
+                venta.setIdVenta(rs.getInt("idVenta"));
+                detalleVenta.setVenta(venta);
+//
+                Producto producto = new Producto();
+                producto.setIdProducto(rs.getInt("idProducto"));
+                detalleVenta.setProducto(producto);
 
-            Producto producto = new Producto();
-            producto.setIdProducto(rs.getInt("idProducto"));
-            producto.setNombreProducto(rs.getString("nombreProducto"));
-            producto.setDescripcion(rs.getString("descripcion"));
-            producto.setPrecioActual(rs.getDouble("precioActual"));
-            producto.setStock(rs.getInt("stock"));
-            producto.setEstado(rs.getBoolean("estado"));
-            detalleVenta.setProducto(producto);
-
-            detallesVenta.add(detalleVenta);
+                detallesVenta.add(detalleVenta);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de ventas");
         }
-        ps.close();
-    } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de venta");
+        return detallesVenta;
     }
-    return detallesVenta;
-}
-   
-   
-   
- public DetalleVenta buscarDetalleVenta(int id) {
+
+
+
+
+  
+public DetalleVenta buscarDetalleVenta(int id) {
     DetalleVenta detalleVenta = null;
-    String sql = "SELECT dv.cantidad, dv.precioVenta, v.idCliente, v.fechaVenta, p.idProducto, p.nombreProducto, p.descripcion, p.precioActual, p.stock, p.estado " +
-                 "FROM detalleVenta dv " +
-                 "INNER JOIN venta v ON dv.idVenta = v.idVenta " +
-                 "INNER JOIN producto p ON dv.idProducto = p.idProducto " +
-                 "WHERE dv.idDetalleVenta = ?";
+    String sql = "SELECT idDetalleVenta, cantidad, precioVenta, idVenta, idProducto " +
+                 "FROM detalleVenta " +
+                 "WHERE idDetalleVenta = ?";
+    PreparedStatement ps = null;
     try {
-        PreparedStatement ps = connection.prepareStatement(sql);
+        ps = connection.prepareStatement(sql);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
@@ -142,27 +132,20 @@ public class DetalleVentaData {
             detalleVenta.setIdDetalleVenta(id);
             detalleVenta.setCantidad(rs.getInt("cantidad"));
             detalleVenta.setPrecioVenta(rs.getDouble("precioVenta"));
+
             Venta venta = new Venta();
             venta.setIdVenta(rs.getInt("idVenta"));
-            Cliente cliente = new Cliente();
-            cliente.setIdCliente(rs.getInt("idCliente"));
-            venta.setCliente(cliente);
-            venta.setFechaVenta(rs.getDate("fechaVenta").toLocalDate());
             detalleVenta.setVenta(venta);
+
             Producto producto = new Producto();
             producto.setIdProducto(rs.getInt("idProducto"));
-            producto.setNombreProducto(rs.getString("nombreProducto"));
-            producto.setDescripcion(rs.getString("descripcion"));
-            producto.setPrecioActual(rs.getDouble("precioActual"));
-            producto.setStock(rs.getInt("stock"));
-            producto.setEstado(rs.getBoolean("estado"));
             detalleVenta.setProducto(producto);
         } else {
             JOptionPane.showMessageDialog(null, "No existe el detalle de venta buscado");
         }
         ps.close();
     } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de venta");
+        JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de ventas");
     }
     return detalleVenta;
 }
