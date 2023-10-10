@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistafravemax.vista;
+package proyectoventasg23.Vistas;
 
 
 public class menuPpal extends javax.swing.JFrame {

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package vistafravemax.vista;
+package proyectoventasg23.Vistas;
 
 /**
  *
