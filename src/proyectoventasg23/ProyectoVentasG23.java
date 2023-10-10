@@ -12,7 +12,7 @@ public class ProyectoVentasG23 {
    
     public static void main(String[] args) {
     Connection connection = Conexion.getConexion();
-    // Producto p1 = new Producto (6, "azucar", "alimento seco", 750, 16, true);
+    //Producto p1 = new Producto (6, "azucar", "alimento seco", 750, 16, true);
       //ProductoData pD = new ProductoData ();
        //pD.guardarProducto(p1);
         //pD.eliminarProducto(11);
@@ -30,18 +30,23 @@ public class ProyectoVentasG23 {
         //System.out.print(cd.listarCliente());
           //cd.buscarCliente(3);
     
-        
-
-    //DetalleVentaData dVD=new DetalleVentaData();
-    //dVD.guardarDetalleVenta(dV);
+          Producto p1 = new Producto (6, "azucar", "alimento seco", 750, 16, true);
+          Cliente c= new Cliente (2,"Gomez", "Carlos", "Rosas 888", "228154268");
+          Venta v= new Venta(2, c, LocalDate.of(2022,04,22) );
+          //VentaData vD= new VentaData();
+          //vD.guardarVenta(v);
+          DetalleVenta dv= new DetalleVenta(2,v,700.00,p1);
+         DetalleVentaData dVD=new DetalleVentaData();
+         dVD.guardarDetalleVenta(dv);
     //dVD.eliminarDetalleVenta(20);
     //dVD.modificarDetalleVenta(dV);
     //System.out.println(dVD.buscarDetalleVenta(11));
     //System.out.println(dVD.listarDetalleVenta());
     
-    //Cliente c= new Cliente ("Gomez", "Carlos", "Rosas 888", "228154268"); 
-    //Venta v= new Venta(5, c, LocalDate.of(2022,04,22) );
+     
+    
     //VentaData vD= new VentaData();
+    //vD.guardarVenta(v);
     //System.out.println(vD.listarVentas());  
     }
     

@@ -5,6 +5,8 @@
  */
 package proyectoventasg23.Vistas;
 
+import vistafravemax.vista.ProductoAdm;
+
 /**
  *
  * @author Altamirano
@@ -41,16 +43,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
-        );
+        escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jProducto.setText("Producto");
         jProducto.addActionListener(new java.awt.event.ActionListener() {
