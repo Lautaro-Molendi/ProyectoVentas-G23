@@ -10,10 +10,10 @@ package proyectoventasg23.Vistas;
  *
  * @author Altamirano
  */
-public class Cliente extends javax.swing.JInternalFrame {
+public class Clientes extends javax.swing.JInternalFrame {
 
     /** Creates new form Cliente */
-    public Cliente() {
+    public Clientes() {
         initComponents();
     }
 

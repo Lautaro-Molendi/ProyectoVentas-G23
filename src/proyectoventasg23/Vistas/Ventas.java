@@ -9,12 +9,12 @@ package proyectoventasg23.Vistas;
  *
  * @author Altamirano
  */
-public class Venta extends javax.swing.JInternalFrame {
+public class Ventas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Venta
      */
-    public Venta() {
+    public Ventas() {
         initComponents();
     }
 

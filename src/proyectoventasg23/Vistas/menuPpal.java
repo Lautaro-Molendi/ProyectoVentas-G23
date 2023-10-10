@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectoventasg23.Vistas;
 
 
@@ -42,14 +38,11 @@ public class menuPpal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         panelLateral.setBackground(new java.awt.Color(255, 153, 153));
-        panelLateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelLogo.setBackground(new java.awt.Color(255, 153, 153));
         labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1.png"))); // NOI18N
-        panelLateral.add(labelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 195, 101));
 
         panelMenucl.setBackground(new java.awt.Color(255, 102, 102));
-        panelMenucl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlabelCliente.setBackground(new java.awt.Color(255, 102, 102));
         jlabelCliente.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
@@ -65,7 +58,6 @@ public class menuPpal extends javax.swing.JFrame {
                 jlabelClienteKeyPressed(evt);
             }
         });
-        panelMenucl.add(jlabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 180, 92));
 
         panelMenuProd.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -93,14 +85,17 @@ public class menuPpal extends javax.swing.JFrame {
             .addComponent(jlabelProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
-        panelMenucl.add(panelMenuProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 98, 190, -1));
-
         panelMenuVenta.setBackground(new java.awt.Color(255, 102, 102));
 
         jlabelVentas.setBackground(new java.awt.Color(255, 102, 102));
         jlabelVentas.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jlabelVentas.setForeground(new java.awt.Color(255, 255, 255));
         jlabelVentas.setText("Ventas");
+        jlabelVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabelVentasMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMenuVentaLayout = new javax.swing.GroupLayout(panelMenuVenta);
         panelMenuVenta.setLayout(panelMenuVentaLayout);
@@ -119,14 +114,17 @@ public class menuPpal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelMenucl.add(panelMenuVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 184, 190, -1));
-
         jPanelCons.setBackground(new java.awt.Color(255, 102, 102));
 
         jLabConsulta.setBackground(new java.awt.Color(255, 102, 102));
         jLabConsulta.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabConsulta.setForeground(new java.awt.Color(255, 255, 255));
         jLabConsulta.setText("Consultas");
+        jLabConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabConsultaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelConsLayout = new javax.swing.GroupLayout(jPanelCons);
         jPanelCons.setLayout(jPanelConsLayout);
@@ -145,9 +143,48 @@ public class menuPpal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelMenucl.add(jPanelCons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 190, 80));
+        javax.swing.GroupLayout panelMenuclLayout = new javax.swing.GroupLayout(panelMenucl);
+        panelMenucl.setLayout(panelMenuclLayout);
+        panelMenuclLayout.setHorizontalGroup(
+            panelMenuclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuclLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jlabelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelMenuProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelMenuVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelCons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelMenuclLayout.setVerticalGroup(
+            panelMenuclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuclLayout.createSequentialGroup()
+                .addComponent(jlabelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelMenuProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(panelMenuclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelMenuVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelMenuclLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jPanelCons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
-        panelLateral.add(panelMenucl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 119, 190, 340));
+        javax.swing.GroupLayout panelLateralLayout = new javax.swing.GroupLayout(panelLateral);
+        panelLateral.setLayout(panelLateralLayout);
+        panelLateralLayout.setHorizontalGroup(
+            panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLateralLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelMenucl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        panelLateralLayout.setVerticalGroup(
+            panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLateralLayout.createSequentialGroup()
+                .addComponent(labelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelMenucl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         panelTitulo.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -164,7 +201,7 @@ public class menuPpal extends javax.swing.JFrame {
             .addGroup(panelTituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(639, Short.MAX_VALUE))
+                .addContainerGap(657, Short.MAX_VALUE))
         );
         panelTituloLayout.setVerticalGroup(
             panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +218,7 @@ public class menuPpal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1009, Short.MAX_VALUE)
+            .addGap(0, 1027, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +230,7 @@ public class menuPpal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -203,7 +240,7 @@ public class menuPpal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLateral, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addComponent(panelLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,21 +258,39 @@ public class menuPpal extends javax.swing.JFrame {
     private void jlabelClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabelClienteMouseClicked
       escritorio.removeAll();
         escritorio.repaint();
-        Cliente vistaCliente= new Cliente();
-        vistaCliente.setVisible(true);
-        escritorio.add(vistaCliente);
-        escritorio.moveToFront(vistaCliente);
+        Clientes vistaClientes= new Clientes();
+        vistaClientes.setVisible(true);
+        escritorio.add(vistaClientes);
+        escritorio.moveToFront(vistaClientes);
     }//GEN-LAST:event_jlabelClienteMouseClicked
 
     private void jlabelProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabelProductoMouseClicked
        escritorio.removeAll();
         escritorio.repaint();
-        ProductoAdm producto = new ProductoAdm();
-        producto.setVisible(true);
-        escritorio.add(producto);
-        escritorio.moveToFront(producto);
+        Productos vistaProductos = new Productos();
+        vistaProductos.setVisible(true);
+        escritorio.add(vistaProductos);
+        escritorio.moveToFront(vistaProductos);
        
     }//GEN-LAST:event_jlabelProductoMouseClicked
+
+    private void jlabelVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabelVentasMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+         Ventas vistaVentas = new Ventas();
+        vistaVentas.setVisible(true);
+        escritorio.add(vistaVentas);
+        escritorio.moveToFront(vistaVentas);
+    }//GEN-LAST:event_jlabelVentasMouseClicked
+
+    private void jLabConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabConsultaMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+        Consultas vistaConsultas = new Consultas();
+        vistaConsultas.setVisible(true);
+        escritorio.add(vistaConsultas);
+        escritorio.moveToFront(vistaConsultas);// TODO add your handling code here:
+    }//GEN-LAST:event_jLabConsultaMouseClicked
 
     /**
      * @param args the command line arguments
