@@ -5,6 +5,7 @@
  */
 package proyectoventasg23.Vistas;
 
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ProductoData;
 import proyectoventasg23.Entidades.Producto;
@@ -14,7 +15,7 @@ import proyectoventasg23.Entidades.Producto;
 public class Productos extends javax.swing.JInternalFrame {
 
 
-private ProductoData ProData = new ProductoData();
+private ProductoData proData = new ProductoData();
 private Producto nuevoPro = null;
     
     /**
@@ -159,17 +160,23 @@ private Producto nuevoPro = null;
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-           
+           try {
         String nombre = jtNom.getText();
         String descripcion = jtDes.getText();
-        String precio = jtPre.getText();
-        String stock = jtSto.getText();
-        if(nombre.isEmpty()||descripcion.isEmpty()||precio.isEmpty()|| stock.isEmpty()){
+        Double precio = Double.parseDouble(jtPre.getText());
+        Integer stock = Integer.parseInt(jtSto.getText());
+        if(nombre.isEmpty()||descripcion.isEmpty()||precio.equals(0)|| stock.equals(0)){
             JOptionPane.showMessageDialog(this,"no puede haber campos vacios");
-        
+      }
+        if (nuevoPro == null){
+                nuevoPro = new Producto (nombre, descripcion, precio, stock, true);
+                proData.guardarProducto(nuevoPro);
+                JOptionPane.showMessageDialog(this, "producto guardado");
+           }
       
-      }  
-     
+      }catch (NumberFormatException nfe){
+            JOptionPane.showMessageDialog(this, "no se pudo ingresar a la tabla"); 
+     }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
