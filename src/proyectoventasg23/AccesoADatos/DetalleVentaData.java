@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -148,5 +149,33 @@ public DetalleVenta buscarDetalleVenta(int id) {
         JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de ventas");
     }
     return detalleVenta;
+}
+
+public List<Producto> listarProductosDeVentaEnFecha(LocalDate fecha) {
+    List<Producto> productos = new ArrayList<>();
+    String sql = "SELECT p.idProducto, p.nombreProducto, p.descripcion, p.precioActual, p.stock " +
+                 "FROM venta v " +
+                 "INNER JOIN detalleVenta dv ON v.idVenta = dv.idVenta " +
+                 "INNER JOIN producto p ON dv.idProducto = p.idProducto " +
+                 "WHERE v.fechaVenta = ?";
+    
+    try {
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setDate(1, java.sql.Date.valueOf(fecha));
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Producto producto = new Producto();
+            producto.setIdProducto(rs.getInt("idProducto"));
+            producto.setNombreProducto(rs.getString("nombreProducto"));
+            producto.setDescripcion(rs.getString("descripcion"));
+            producto.setPrecioActual(rs.getDouble("precioActual"));
+            producto.setStock(rs.getInt("stock"));
+            productos.add(producto);
+        }
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de ventas");
+    }
+    return productos;
 }
 }
