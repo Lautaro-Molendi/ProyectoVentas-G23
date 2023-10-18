@@ -35,6 +35,7 @@ private Producto nuevoPro = null;
     private void initComponents() {
 
         jTextField3 = new javax.swing.JTextField();
+        jdEscritorio = new javax.swing.JDesktopPane();
         jNombre = new javax.swing.JLabel();
         jtNom = new javax.swing.JTextField();
         jDescripcion = new javax.swing.JLabel();
@@ -44,9 +45,9 @@ private Producto nuevoPro = null;
         jStock = new javax.swing.JLabel();
         jtSto = new javax.swing.JTextField();
         jbGuardar = new javax.swing.JButton();
-        jbSalir = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbMod = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         jTextField3.setText("jTextField3");
 
@@ -54,6 +55,8 @@ private Producto nuevoPro = null;
         setResizable(true);
         setTitle("Administración de Productos");
         setPreferredSize(new java.awt.Dimension(800, 600));
+
+        jdEscritorio.setBackground(new java.awt.Color(240, 240, 240));
 
         jNombre.setText("Nombre");
 
@@ -70,6 +73,15 @@ private Producto nuevoPro = null;
             }
         });
 
+        jbMod.setText("Modificar");
+        jbMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar");
+
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,77 +89,95 @@ private Producto nuevoPro = null;
             }
         });
 
-        jButton1.setText("Modificar");
+        jdEscritorio.setLayer(jNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jtNom, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jtDes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jPrecio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jtPre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jStock, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jtSto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jbGuardar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jbMod, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jbSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton2.setText("Eliminar");
+        javax.swing.GroupLayout jdEscritorioLayout = new javax.swing.GroupLayout(jdEscritorio);
+        jdEscritorio.setLayout(jdEscritorioLayout);
+        jdEscritorioLayout.setHorizontalGroup(
+            jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jNombre)
+                .addGap(90, 90, 90)
+                .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jDescripcion)
+                .addGap(73, 73, 73)
+                .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jPrecio)
+                .addGap(98, 98, 98)
+                .addComponent(jtPre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jStock)
+                .addGap(98, 98, 98)
+                .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jbGuardar)
+                .addGap(18, 18, 18)
+                .addComponent(jbMod)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(24, 24, 24)
+                .addComponent(jbSalir))
+        );
+        jdEscritorioLayout.setVerticalGroup(
+            jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdEscritorioLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jNombre))
+                    .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdEscritorioLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jDescripcion))
+                    .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdEscritorioLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jPrecio))
+                    .addComponent(jtPre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jStock)
+                    .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbMod)
+                    .addComponent(jButton2)
+                    .addComponent(jbSalir)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jNombre)
-                .addGap(44, 44, 44)
-                .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jDescripcion)
-                .addGap(32, 32, 32)
-                .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jPrecio)
-                .addGap(51, 51, 51)
-                .addComponent(jtPre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jStock)
-                .addGap(51, 51, 51)
-                .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jbGuardar)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jbSalir))
+            .addComponent(jdEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jNombre))
-                    .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jDescripcion))
-                    .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jPrecio))
-                    .addComponent(jtPre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jStock))
-                    .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbGuardar)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jbSalir)))
+            .addComponent(jdEscritorio)
         );
 
         pack();
@@ -179,9 +209,18 @@ private Producto nuevoPro = null;
      }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
+    private void jbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModActionPerformed
+        // TODO add your handling code here:
+        ModificarProducto vistaModPro = new ModificarProducto();
+        jdEscritorio.removeAll();
+        jdEscritorio.add(vistaModPro);
+        jdEscritorio.revalidate();
+        vistaModPro.setVisible(true);
+        vistaModPro.moveToFront();
+    }//GEN-LAST:event_jbModActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jDescripcion;
     private javax.swing.JLabel jNombre;
@@ -189,7 +228,9 @@ private Producto nuevoPro = null;
     private javax.swing.JLabel jStock;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbMod;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JDesktopPane jdEscritorio;
     private javax.swing.JTextField jtDes;
     private javax.swing.JTextField jtNom;
     private javax.swing.JTextField jtPre;

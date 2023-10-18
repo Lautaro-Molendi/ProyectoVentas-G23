@@ -104,18 +104,18 @@ public class ProductoData {
     return productos;
   } 
     
-  public Producto buscarProducto (int id){
+  public Producto buscarProducto (int idProducto){
       Producto producto =null;
     String sql = "SELECT nombreProducto, descripcion, precioActual, stock"
             + " FROM producto WHERE idProducto = ? AND estado = 1";
     PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idProducto);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
             producto = new Producto();
-            producto.setIdProducto(id);
+            producto.setIdProducto(idProducto);
             producto.setNombreProducto(rs.getString("nombreProducto"));
             producto.setDescripcion(rs.getString("descripcion"));
             producto.setPrecioActual(rs.getDouble("precioActual"));
