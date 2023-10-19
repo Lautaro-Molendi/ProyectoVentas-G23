@@ -328,7 +328,7 @@ public class menuPpal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabConsulta;
     private javax.swing.JPanel jPanelCons;
     private javax.swing.JLabel jlabelCliente;

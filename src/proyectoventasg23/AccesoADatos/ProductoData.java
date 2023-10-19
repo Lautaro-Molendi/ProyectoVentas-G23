@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import proyectoventasg23.Entidades.Producto;
+import proyectoventasg23.Entidades.*;
+import proyectoventasg23.AccesoAdatos.*;
 
 
 public class ProductoData {
@@ -123,7 +124,7 @@ public class ProductoData {
         }
          ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "no se pudo acceder a la tabla producto");
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla producto");
         }
     return producto;
   }   

@@ -9,16 +9,20 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import proyectoventasg23.Entidades.DetalleVenta;
-import proyectoventasg23.Entidades.Producto;
+import proyectoventasg23.Entidades.*;
+import proyectoventasg23.AccesoADatos.ProductoData;
 import proyectoventasg23.Entidades.Venta;
 
 public class DetalleVentaData {
     private Connection connection = null;
-
+    private ProductoData productoData;
+    
     public DetalleVentaData() {
         connection = Conexion.getConexion();
+        productoData=new ProductoData();
     }
 
     public void guardarDetalleVenta(DetalleVenta detalleVenta) {
@@ -100,7 +104,7 @@ public List<DetalleVenta> listarDetalleVenta() {
                 Venta venta = new Venta();
                 venta.setIdVenta(rs.getInt("idVenta"));
                 detalleVenta.setVenta(venta);
-//
+
                 Producto producto = new Producto();
                 producto.setIdProducto(rs.getInt("idProducto"));
                 detalleVenta.setProducto(producto);
@@ -138,7 +142,7 @@ public DetalleVenta buscarDetalleVenta(int id) {
             venta.setIdVenta(rs.getInt("idVenta"));
             detalleVenta.setVenta(venta);
 
-            Producto producto = new Producto();
+            Producto producto = productoData.buscarProducto(rs.getInt("idProducto"));
             producto.setIdProducto(rs.getInt("idProducto"));
             detalleVenta.setProducto(producto);
         } else {
@@ -150,6 +154,31 @@ public DetalleVenta buscarDetalleVenta(int id) {
     }
     return detalleVenta;
 }
+
+public List<DetalleVenta> obtenerDetallesVentaDeVenta(Venta venta)  {
+    List<DetalleVenta> detalles = new ArrayList<>();
+    String sql = "SELECT idDetalleVenta, cantidad, precioVenta, idProducto FROM detalleVenta WHERE idVenta = ?";
+    
+    try (PreparedStatement ps = connection.prepareStatement(sql)) {
+        ps.setInt(1, venta.getIdVenta());
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            DetalleVenta detalle = new DetalleVenta();
+            detalle.setIdDetalleVenta(rs.getInt("idDetalleVenta"));
+            detalle.setCantidad(rs.getInt("cantidad"));
+            detalle.setPrecioVenta(rs.getDouble("precioVenta"));
+            detalle.setVenta(venta);
+            detalles.add(detalle);
+        }
+    }   catch (SQLException ex) {
+            Logger.getLogger(DetalleVentaData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    return detalles;
+}
+
+   
 
 public List<Producto> listarProductosDeVentaEnFecha(LocalDate fecha) {
     List<Producto> productos = new ArrayList<>();
@@ -178,4 +207,6 @@ public List<Producto> listarProductosDeVentaEnFecha(LocalDate fecha) {
     }
     return productos;
 }
+
+   
 }
