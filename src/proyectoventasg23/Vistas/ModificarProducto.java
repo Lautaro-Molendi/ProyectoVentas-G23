@@ -45,9 +45,14 @@ private Producto nuevoPro = null;
         jtPre = new javax.swing.JTextField();
         jtSto = new javax.swing.JTextField();
         jbMod = new javax.swing.JButton();
-        jbSal = new javax.swing.JButton();
         jbBus = new javax.swing.JButton();
         jbNue = new javax.swing.JButton();
+        jrEst = new javax.swing.JRadioButton();
+        jlEst = new javax.swing.JLabel();
+        jbEli = new javax.swing.JButton();
+
+        setClosable(true);
+        setMaximizable(true);
 
         jdEscritorio.setBackground(new java.awt.Color(240, 240, 240));
         jdEscritorio.setForeground(new java.awt.Color(240, 240, 240));
@@ -80,13 +85,6 @@ private Producto nuevoPro = null;
             }
         });
 
-        jbSal.setText("Salir");
-        jbSal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalActionPerformed(evt);
-            }
-        });
-
         jbBus.setText("Buscar");
         jbBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +96,15 @@ private Producto nuevoPro = null;
         jbNue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNueActionPerformed(evt);
+            }
+        });
+
+        jlEst.setText("Estado:");
+
+        jbEli.setText("Eliminar");
+        jbEli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliActionPerformed(evt);
             }
         });
 
@@ -113,9 +120,11 @@ private Producto nuevoPro = null;
         jdEscritorio.setLayer(jtPre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jtSto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jbMod, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jbSal, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jbBus, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jbNue, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jrEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jlEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jbEli, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdEscritorioLayout = new javax.swing.GroupLayout(jdEscritorio);
         jdEscritorio.setLayout(jdEscritorioLayout);
@@ -123,20 +132,6 @@ private Producto nuevoPro = null;
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdEscritorioLayout.createSequentialGroup()
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdEscritorioLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlnom)
-                            .addComponent(jLabel3)
-                            .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jlSto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jlPre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(35, 35, 35)
-                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtPre)
-                            .addComponent(jtDes)
-                            .addComponent(jtNom)
-                            .addComponent(jtSto)))
                     .addGroup(jdEscritorioLayout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(jLabel1))
@@ -146,15 +141,36 @@ private Producto nuevoPro = null;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbBus)))
+                        .addComponent(jbBus))
+                    .addGroup(jdEscritorioLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlnom)
+                                .addComponent(jLabel3)
+                                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jlSto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlPre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                                .addComponent(jlEst)
+                                .addGap(25, 25, 25)))
+                        .addGap(35, 35, 35)
+                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                                .addComponent(jrEst)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jtPre)
+                            .addComponent(jtDes)
+                            .addComponent(jtNom)
+                            .addComponent(jtSto))))
                 .addGap(94, 94, 94))
             .addGroup(jdEscritorioLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(112, 112, 112)
                 .addComponent(jbMod)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jbNue)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbSal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbEli)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jdEscritorioLayout.setVerticalGroup(
@@ -183,12 +199,16 @@ private Producto nuevoPro = null;
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jlSto)
                     .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(7, 7, 7)
+                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrEst)
+                    .addComponent(jlEst))
+                .addGap(7, 7, 7)
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbMod)
-                    .addComponent(jbSal)
-                    .addComponent(jbNue))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(jbNue)
+                    .addComponent(jbEli))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,6 +229,27 @@ private Producto nuevoPro = null;
 
     private void jbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModActionPerformed
         // TODO add your handling code here:
+        try {
+          Integer idProducto = Integer.parseInt(jtId.getText());  
+          String nom = jtNom.getText();
+          String des = jtDes.getText();
+          Double pre = Double.parseDouble(jtPre.getText());
+          Integer sto = Integer.parseInt(jtSto.getText());
+          if (nom.isEmpty()|| des.isEmpty()|| pre.equals(0)|| sto.equals(0)){
+            JOptionPane.showMessageDialog(this, "no debe haber campos vacios");  
+          }
+          Boolean est = jrEst.isSelected();
+          
+          nuevoPro.setIdProducto(idProducto);
+          nuevoPro.setNombreProducto(nom);
+          nuevoPro.setDescripcion(des);
+          nuevoPro.setPrecioActual(pre);
+          nuevoPro.setStock(sto);
+          proData.modificarProducto(nuevoPro);
+          
+        } catch (NumberFormatException nfe){
+             JOptionPane.showMessageDialog(this, "el id no es valido");
+        }
         
     }//GEN-LAST:event_jbModActionPerformed
 
@@ -223,6 +264,7 @@ private Producto nuevoPro = null;
              jtDes.setText(nuevoPro.getDescripcion());    
              jtPre.setText(Double.toString(nuevoPro.getPrecioActual()));
              jtSto.setText(Integer.toString(nuevoPro.getStock()));
+             jrEst.setSelected(nuevoPro.isEstado());
              
             }
             
@@ -232,42 +274,45 @@ private Producto nuevoPro = null;
        }
     }//GEN-LAST:event_jbBusActionPerformed
 
-    private void jbSalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        jdEscritorio.removeAll();
-        jdEscritorio.repaint();
-        Productos vistaProductos = new Productos();
-        vistaProductos.setVisible(true);
-        jdEscritorio.add(vistaProductos);
-        jdEscritorio.moveToFront(vistaProductos);
-    }//GEN-LAST:event_jbSalActionPerformed
-
     private void jbNueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueActionPerformed
         // TODO add your handling code here:
         limpiarCampos();
         nuevoPro= null;
         
     }//GEN-LAST:event_jbNueActionPerformed
+
+    private void jbEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliActionPerformed
+        // TODO add your handling code here:
+          if (nuevoPro!=null){
+            proData.eliminarProducto(nuevoPro.getIdProducto());
+            nuevoPro = null;
+            limpiarCampos();
+        } else {
+          JOptionPane.showMessageDialog(this, "no hay producto seleccionado");  
+        }
+    }//GEN-LAST:event_jbEliActionPerformed
     private void limpiarCampos(){
         jtId.setText("");
         jtNom.setText("");
         jtDes.setText("");
         jtPre.setText("");
         jtSto.setText("");
+        jrEst.setSelected(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton jbBus;
+    private javax.swing.JButton jbEli;
     private javax.swing.JButton jbMod;
     private javax.swing.JButton jbNue;
-    private javax.swing.JButton jbSal;
     private javax.swing.JDesktopPane jdEscritorio;
+    private javax.swing.JLabel jlEst;
     private javax.swing.JLabel jlPre;
     private javax.swing.JLabel jlSto;
     private javax.swing.JLabel jlnom;
+    private javax.swing.JRadioButton jrEst;
     private javax.swing.JTextField jtDes;
     private javax.swing.JTextField jtId;
     private javax.swing.JTextField jtNom;
