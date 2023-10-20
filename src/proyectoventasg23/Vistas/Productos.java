@@ -56,16 +56,21 @@ JInternalFrame vistaProducto = new JInternalFrame();
         setTitle("Administración de Productos");
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jdEscritorio.setBackground(new java.awt.Color(240, 240, 240));
+        jdEscritorio.setBackground(new java.awt.Color(255, 153, 153));
 
+        jNombre.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jNombre.setText("Nombre");
 
+        jDescripcion.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jDescripcion.setText("Descripción");
 
+        jPrecio.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jPrecio.setText("Precio");
 
+        jStock.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jStock.setText("Stock");
 
+        jbGuardar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +78,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
             }
         });
 
+        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +86,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
             }
         });
 
+        jbSalir.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +125,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
                     .addGroup(jdEscritorioLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(jStock)
-                        .addGap(98, 98, 98)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEscritorioLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -132,7 +139,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
                         .addComponent(jDescripcion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(490, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
         jdEscritorioLayout.setVerticalGroup(
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

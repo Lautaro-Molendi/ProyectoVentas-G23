@@ -55,22 +55,27 @@ private Producto nuevoPro = new Producto();
         setClosable(true);
         setMaximizable(true);
 
-        jdEscritorio.setBackground(new java.awt.Color(240, 240, 240));
+        jdEscritorio.setBackground(new java.awt.Color(255, 153, 153));
         jdEscritorio.setForeground(new java.awt.Color(240, 240, 240));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Modificar producto");
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel2.setText("Ingrese el ID del producto: ");
 
         jtId.setText(" ");
 
+        jlnom.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jlnom.setText("Nombre:");
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel3.setText("Descripción:");
 
+        jlPre.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jlPre.setText("Precio:");
 
+        jlSto.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jlSto.setText("Stock:");
 
         jtNom.setText(" ");
@@ -79,6 +84,7 @@ private Producto nuevoPro = new Producto();
 
         jtPre.setText("  ");
 
+        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +92,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
+        jbBus.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbBus.setText("Buscar");
         jbBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +100,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
+        jbNue.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbNue.setText("Nuevo");
         jbNue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,8 +114,10 @@ private Producto nuevoPro = new Producto();
             }
         });
 
+        jlEst.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jlEst.setText("Estado:");
 
+        jbEli.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbEli.setText("Eliminar");
         jbEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
