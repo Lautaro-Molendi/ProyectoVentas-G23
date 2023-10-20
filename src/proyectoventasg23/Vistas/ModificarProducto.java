@@ -15,12 +15,13 @@ import proyectoventasg23.Entidades.Producto;
  */
 public class ModificarProducto extends javax.swing.JInternalFrame {
 private ProductoData proData = new ProductoData();
-private Producto nuevoPro = null;
+private Producto nuevoPro = new Producto();
     /**
      * Creates new form ModificarProducto
      */
     public ModificarProducto() {
         initComponents();
+        limpiarCampos();
     }
 
     /**
@@ -96,6 +97,12 @@ private Producto nuevoPro = null;
         jbNue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNueActionPerformed(evt);
+            }
+        });
+
+        jrEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrEstActionPerformed(evt);
             }
         });
 
@@ -245,7 +252,7 @@ private Producto nuevoPro = null;
           nuevoPro.setDescripcion(des);
           nuevoPro.setPrecioActual(pre);
           nuevoPro.setStock(sto);
-          proData.modificarProducto(nuevoPro);
+          proData.modificarProducto(nuevoPro); 
           
         } catch (NumberFormatException nfe){
              JOptionPane.showMessageDialog(this, "el id no es valido");
@@ -256,20 +263,22 @@ private Producto nuevoPro = null;
     private void jbBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusActionPerformed
         // TODO add your handling code here:
         try{
-            Integer idProducto = Integer.parseInt(jtId.getText());
+            System.out.println("el número es: " +Integer.parseInt(jtId.getText()));
+            int idProducto = Integer.parseInt(jtId.getText());
             nuevoPro = proData.buscarProducto(idProducto);
+            nuevoPro.setEstado(true);
             if (nuevoPro!=null){
                 
              jtNom.setText(nuevoPro.getNombreProducto());
              jtDes.setText(nuevoPro.getDescripcion());    
-             jtPre.setText(Double.toString(nuevoPro.getPrecioActual()));
-             jtSto.setText(Integer.toString(nuevoPro.getStock()));
+             jtPre.setText(nuevoPro.getPrecioActual()+ "");
+             jtSto.setText(nuevoPro.getStock()+ "");
              jrEst.setSelected(nuevoPro.isEstado());
              
             }
             
        } catch(NumberFormatException ex){
-           JOptionPane.showMessageDialog(this, "el id no es valido");
+           JOptionPane.showMessageDialog(this, "el id no es valido: " + ex);
            
        }
     }//GEN-LAST:event_jbBusActionPerformed
@@ -291,6 +300,12 @@ private Producto nuevoPro = null;
           JOptionPane.showMessageDialog(this, "no hay producto seleccionado");  
         }
     }//GEN-LAST:event_jbEliActionPerformed
+
+    private void jrEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstActionPerformed
+        // TODO add your handling code here:
+        nuevoPro.isEstado();
+       
+    }//GEN-LAST:event_jrEstActionPerformed
     private void limpiarCampos(){
         jtId.setText("");
         jtNom.setText("");

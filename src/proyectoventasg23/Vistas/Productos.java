@@ -6,6 +6,7 @@
 package proyectoventasg23.Vistas;
 
 import java.sql.SQLException;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ProductoData;
 import proyectoventasg23.Entidades.Producto;
@@ -17,7 +18,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
 private ProductoData proData = new ProductoData();
 private Producto nuevoPro = null;
-    
+JInternalFrame vistaProducto = new JInternalFrame();   
     /**
      * Creates new form Producto
      */
@@ -177,7 +178,10 @@ private Producto nuevoPro = null;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdEscritorio)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jdEscritorio)
+                .addContainerGap())
         );
 
         pack();
@@ -209,7 +213,7 @@ private Producto nuevoPro = null;
         if (nuevoPro == null){
                 nuevoPro = new Producto (nombre, descripcion, precio, stock, true);
                 proData.guardarProducto(nuevoPro);
-                JOptionPane.showMessageDialog(this, "producto guardado");
+                
            }
       
       }catch (NumberFormatException nfe){
@@ -220,7 +224,7 @@ private Producto nuevoPro = null;
     private void jbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModActionPerformed
         // TODO add your handling code here:
         ModificarProducto vistaModPro = new ModificarProducto();
-        jdEscritorio.removeAll();
+       // jdEscritorio.removeAll();
         jdEscritorio.add(vistaModPro);
         jdEscritorio.revalidate();
         vistaModPro.setVisible(true);
