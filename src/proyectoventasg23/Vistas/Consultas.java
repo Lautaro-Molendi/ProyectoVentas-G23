@@ -1,25 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectoventasg23.Vistas;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.BorderLayout;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import proyectoventasg23.Entidades.*;
+import proyectoventasg23.AccesoADatos.*;
 
 /**
  *
  * @author luciana
  */
 public class Consultas extends javax.swing.JInternalFrame {
-
+    public VentaData ventaD= new VentaData();
+    public Venta ventaNueva=null;
+    public DetalleVentaData detalleData= new DetalleVentaData();
+    public DetalleVenta nuevoDetalle=null;
+    public Cliente nuevoCli= null;
+    public ClienteData clientDat= new ClienteData();
+    public Producto nuevoProducto= null;
+    public ProductoData proData=new ProductoData();
+    private DefaultTableModel modeloTabla= new DefaultTableModel(){
+        public boolean isCellEditable(int fila, int column) {
+                return false;
+        }
+    };
     
     public Consultas() {
-        initComponents();
-        
-        
+        initComponents();      
+        jPanelProdxFecha.setVisible(false);
     }
 
     
@@ -28,7 +42,6 @@ public class Consultas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         grupoConsulta = new javax.swing.ButtonGroup();
-        escritorioConsultas = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jRadProdxFecha = new javax.swing.JRadioButton();
         jRadVentaxFecha = new javax.swing.JRadioButton();
@@ -41,25 +54,12 @@ public class Consultas extends javax.swing.JInternalFrame {
         jBtnAceptar = new javax.swing.JButton();
         jPanelProdxFecha = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateProdXventa = new com.toedter.calendar.JDateChooser();
         jBtnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTabla = new javax.swing.JTable();
+        jTablaProdFecha = new javax.swing.JTable();
 
         setTitle("Consultas");
-
-        escritorioConsultas.setPreferredSize(new java.awt.Dimension(800, 600));
-
-        javax.swing.GroupLayout escritorioConsultasLayout = new javax.swing.GroupLayout(escritorioConsultas);
-        escritorioConsultas.setLayout(escritorioConsultasLayout);
-        escritorioConsultasLayout.setHorizontalGroup(
-            escritorioConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1002, Short.MAX_VALUE)
-        );
-        escritorioConsultasLayout.setVerticalGroup(
-            escritorioConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -123,14 +123,16 @@ public class Consultas extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanelProdxFecha.setBackground(new java.awt.Color(255, 153, 153));
+
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Ingrese la fecha");
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 204, 204));
-        jDateChooser1.setForeground(new java.awt.Color(255, 153, 153));
-        jDateChooser1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jDateProdXventa.setBackground(new java.awt.Color(204, 204, 204));
+        jDateProdXventa.setForeground(new java.awt.Color(255, 153, 153));
+        jDateProdXventa.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
 
         jBtnBuscar.setBackground(new java.awt.Color(255, 102, 102));
         jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -145,10 +147,10 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 153, 153));
 
-        jTabla.setBackground(new java.awt.Color(255, 153, 153));
-        jTabla.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jTabla.setForeground(new java.awt.Color(51, 51, 51));
-        jTabla.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaProdFecha.setBackground(new java.awt.Color(255, 153, 153));
+        jTablaProdFecha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jTablaProdFecha.setForeground(new java.awt.Color(51, 51, 51));
+        jTablaProdFecha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -159,10 +161,10 @@ public class Consultas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTabla.setGridColor(new java.awt.Color(255, 102, 102));
-        jTabla.setSelectionBackground(new java.awt.Color(255, 51, 102));
-        jTabla.setSelectionForeground(new java.awt.Color(255, 153, 153));
-        jScrollPane1.setViewportView(jTabla);
+        jTablaProdFecha.setGridColor(new java.awt.Color(255, 102, 102));
+        jTablaProdFecha.setSelectionBackground(new java.awt.Color(255, 51, 102));
+        jTablaProdFecha.setSelectionForeground(new java.awt.Color(255, 153, 153));
+        jScrollPane1.setViewportView(jTablaProdFecha);
 
         javax.swing.GroupLayout jPanelProdxFechaLayout = new javax.swing.GroupLayout(jPanelProdxFecha);
         jPanelProdxFecha.setLayout(jPanelProdxFechaLayout);
@@ -174,32 +176,32 @@ public class Consultas extends javax.swing.JInternalFrame {
                         .addGap(103, 103, 103)
                         .addComponent(jLabel1)
                         .addGap(58, 58, 58)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateProdXventa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
             .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
                     .addGap(100, 100, 100)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(100, Short.MAX_VALUE)))
+                    .addContainerGap(122, Short.MAX_VALUE)))
         );
         jPanelProdxFechaLayout.setVerticalGroup(
             jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateProdXventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(60, 60, 60)
                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(376, Short.MAX_VALUE))
             .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
                     .addGap(251, 251, 251)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(251, Short.MAX_VALUE)))
+                    .addContainerGap(263, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -228,9 +230,8 @@ public class Consultas extends javax.swing.JInternalFrame {
                         .addGap(725, 725, 725))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(343, 343, 343)
-                    .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addGap(0, 327, Short.MAX_VALUE)
+                    .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,10 +256,7 @@ public class Consultas extends javax.swing.JInternalFrame {
                 .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(311, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -269,11 +267,6 @@ public class Consultas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(escritorioConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,11 +274,6 @@ public class Consultas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(escritorioConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
 
         pack();
@@ -293,8 +281,8 @@ public class Consultas extends javax.swing.JInternalFrame {
 
     private void jBtnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAceptarActionPerformed
         if(jRadProdxFecha.isSelected()){
-            jPanelProdxFecha.setVisible(true);
-           
+            jPanelProdxFecha.setVisible(true);  
+            armarCabecera();
         }
     }//GEN-LAST:event_jBtnAceptarActionPerformed
 
@@ -315,16 +303,18 @@ public class Consultas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadProdxFechaActionPerformed
 
     private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
-
+      Date fecha= jDateProdXventa.getDate();
+     LocalDate fechaSeleccionada = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+     
+     List<Producto> productos = detalleData.listarProductosDeVentaEnFecha(fechaSeleccionada);
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorioConsultas;
     private javax.swing.ButtonGroup grupoConsulta;
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnBuscar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateProdXventa;
     private javax.swing.JLabel jLBuscarCxC;
     private javax.swing.JLabel jLBuscarPxF;
     private javax.swing.JLabel jLBuscarVxC;
@@ -337,6 +327,17 @@ public class Consultas extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadVentaxFecha;
     private javax.swing.JRadioButton jRadventaxCliente;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTabla;
+    private javax.swing.JTable jTablaProdFecha;
     // End of variables declaration//GEN-END:variables
+  private void armarCabecera(){
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Descripción");
+        modeloTabla.addColumn("Precio");
+        jTablaProdFecha.setModel(modeloTabla);
+
+        }
+    private void vaciarTabla () {
+        for (int i = modeloTabla.getRowCount()-1; i >=0;i--){
+            modeloTabla.removeRow(i);
+        }}
 }

@@ -36,7 +36,7 @@ public class VentaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de ventas");
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de ventas"+ex);
         }
     }
 
@@ -105,18 +105,18 @@ public class VentaData {
 }
 
 
-public Venta buscarVenta(int id) {
+public Venta buscarVenta(int idCliente) {
     Venta venta = null;
     String sql = "SELECT idCliente, fechaVenta FROM venta WHERE idVenta = ?";
     PreparedStatement ps = null;
     try {
         ps = connection.prepareStatement(sql);
-        ps.setInt(1, id);
+        ps.setInt(1, idCliente);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             venta = new Venta();
-            venta.setIdVenta(id);
-            int idCliente = rs.getInt("idCliente");
+            venta.setIdVenta(idCliente);
+            idCliente = rs.getInt("idCliente");
             ClienteData clienteData = new ClienteData();
             Cliente cliente = clienteData.buscarCliente(idCliente); 
             venta.setCliente(cliente);
