@@ -165,13 +165,9 @@ public class Clientes extends javax.swing.JInternalFrame {
     Cliente cliente = new Cliente(idCliente, nombre, apellido, domicilio, telefono);
 
     ClienteData cD = new ClienteData();
-    Cliente clienteExistente = cD.buscarCliente(idCliente);
-    
-    if (clienteExistente != null) {
+   
         cD.modificarCliente(cliente);
-    } else {
-        JOptionPane.showMessageDialog(null, "No se encontró ningún cliente con el ID proporcionado.");
-    }
+       
     }//GEN-LAST:event_jModificarActionPerformed
 
     private void jNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNombreActionPerformed
@@ -203,13 +199,13 @@ public class Clientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTelefonoActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+
     String idClienteStr = JOptionPane.showInputDialog("Ingrese el ID del cliente a eliminar:");
 
     if (idClienteStr == null || idClienteStr.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Debe ingresar un ID de cliente válido.");
         return;
     }
-
     int idCliente;
     try {
         idCliente = Integer.parseInt(idClienteStr);
@@ -217,15 +213,8 @@ public class Clientes extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "El ID de cliente debe ser un número válido.");
         return; 
     }
-
     ClienteData clienteData = new ClienteData();
     clienteData.eliminarCliente(idCliente);
-   
-    if (clienteData.buscarCliente(idCliente) == null) {
-
-    } else {
-        JOptionPane.showMessageDialog(null, "No se pudo eliminar el cliente con el ID proporcionado.");
-    }
     }//GEN-LAST:event_jBEliminarActionPerformed
 
 
