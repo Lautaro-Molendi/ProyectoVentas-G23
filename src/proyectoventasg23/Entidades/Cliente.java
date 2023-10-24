@@ -3,25 +3,25 @@ package proyectoventasg23.Entidades;
 public class Cliente {
     
     int idCliente;
-    String nombre; 
     String apellido;
+    String nombre;
     String domicilio;
     String telefono;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nombre, String apellido, String domicilio, String telefono) {
+    public Cliente(int idCliente, String apellido, String nombre, String domicilio, String telefono) {
         this.idCliente = idCliente;
-        this.nombre = nombre;
         this.apellido = apellido;
+        this.nombre = nombre;
         this.domicilio = domicilio;
         this.telefono = telefono;
     }
 
-    public Cliente(String nombre, String apellido, String domicilio, String telefono) {
-        this.nombre = nombre;
+    public Cliente(String apellido, String nombre, String domicilio, String telefono) {
         this.apellido = apellido;
+        this.nombre = nombre;
         this.domicilio = domicilio;
         this.telefono = telefono;
     }
@@ -34,20 +34,20 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getApellido() {
         return apellido;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDomicilio() {
@@ -66,11 +66,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+
     @Override
     public String toString() {
-        return "Código: "+idCliente+", nombre:" + nombre + ", apellido:" + apellido + ", domicilio:" + domicilio + ", telefono:" + telefono ;
+        return "Cliente{" + "idCliente=" + idCliente + ", apellido=" + apellido + ", nombre=" + nombre + ", domicilio=" + domicilio + ", telefono=" + telefono + '}';
     }
-    
     
     
     

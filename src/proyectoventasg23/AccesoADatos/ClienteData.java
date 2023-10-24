@@ -111,7 +111,7 @@ public class ClienteData {
             if (rs.next()) {
                 cliente = new Cliente();
                 
-                cliente.setIdCliente(rs.getInt("idCliente"));
+                cliente.setIdCliente(rs.getInt(idCliente));
                 cliente.setApellido(rs.getString("apellido"));
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setDomicilio(rs.getString("domicilio"));

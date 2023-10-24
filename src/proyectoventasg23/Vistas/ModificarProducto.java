@@ -5,6 +5,7 @@
  */
 package proyectoventasg23.Vistas;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ProductoData;
 import proyectoventasg23.Entidades.Producto;
@@ -33,11 +34,10 @@ private Producto nuevoPro = new Producto();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jdEscritorio = new javax.swing.JDesktopPane();
+        jpEscritorio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtId = new javax.swing.JTextField();
-        jlnom = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jlPre = new javax.swing.JLabel();
         jlSto = new javax.swing.JLabel();
@@ -51,31 +51,33 @@ private Producto nuevoPro = new Producto();
         jrEst = new javax.swing.JRadioButton();
         jlEst = new javax.swing.JLabel();
         jbEli = new javax.swing.JButton();
+        jlnom = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        jdEscritorio.setBackground(new java.awt.Color(255, 153, 153));
-        jdEscritorio.setForeground(new java.awt.Color(240, 240, 240));
+        jpEscritorio.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Modificar producto");
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setText("Ingrese el ID del producto: ");
 
         jtId.setText(" ");
 
-        jlnom.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jlnom.setText("Nombre:");
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setText("Descripción:");
 
-        jlPre.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jlPre.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jlPre.setText("Precio:");
 
-        jlSto.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jlSto.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jlSto.setText("Stock:");
 
         jtNom.setText(" ");
@@ -84,7 +86,7 @@ private Producto nuevoPro = new Producto();
 
         jtPre.setText("  ");
 
-        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +94,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jbBus.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jbBus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jbBus.setText("Buscar");
         jbBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +102,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jbNue.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jbNue.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jbNue.setText("Nuevo");
         jbNue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +116,10 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jlEst.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jlEst.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jlEst.setText("Estado:");
 
-        jbEli.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jbEli.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jbEli.setText("Eliminar");
         jbEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,120 +127,117 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jdEscritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jtId, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jlnom, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jlPre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jlSto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jtNom, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jtDes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jtPre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jtSto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jbMod, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jbBus, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jbNue, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jrEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jlEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jbEli, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlnom.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jlnom.setText("Nombre:");
 
-        javax.swing.GroupLayout jdEscritorioLayout = new javax.swing.GroupLayout(jdEscritorio);
-        jdEscritorio.setLayout(jdEscritorioLayout);
-        jdEscritorioLayout.setHorizontalGroup(
-            jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEscritorioLayout.createSequentialGroup()
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdEscritorioLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel1))
-                    .addGroup(jdEscritorioLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbBus))
-                    .addGroup(jdEscritorioLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jlnom)
+        javax.swing.GroupLayout jpEscritorioLayout = new javax.swing.GroupLayout(jpEscritorio);
+        jpEscritorio.setLayout(jpEscritorioLayout);
+        jpEscritorioLayout.setHorizontalGroup(
+            jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEscritorioLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jpEscritorioLayout.createSequentialGroup()
+                                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlPre)
+                                    .addComponent(jlnom))
+                                .addGap(82, 82, 82)
+                                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtNom)
+                                    .addComponent(jtPre)))
+                            .addGroup(jpEscritorioLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jlSto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jlPre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jtDes))
+                            .addGroup(jpEscritorioLayout.createSequentialGroup()
                                 .addComponent(jlEst)
-                                .addGap(25, 25, 25)))
-                        .addGap(35, 35, 35)
-                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jdEscritorioLayout.createSequentialGroup()
-                                .addComponent(jrEst)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jtPre)
-                            .addComponent(jtDes)
-                            .addComponent(jtNom)
-                            .addComponent(jtSto))))
-                .addGap(94, 94, 94))
-            .addGroup(jdEscritorioLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(jbMod)
-                .addGap(18, 18, 18)
-                .addComponent(jbNue)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbEli)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(92, 92, 92)
+                                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jrEst)
+                                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                                        .addComponent(jbNue)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(jbMod)
+                                        .addGap(53, 53, 53)
+                                        .addComponent(jbEli))
+                                    .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpEscritorioLayout.createSequentialGroup()
+                                .addGap(155, 155, 155)
+                                .addComponent(jLabel1))
+                            .addGroup(jpEscritorioLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbBus))
+                            .addComponent(jlSto, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jdEscritorioLayout.setVerticalGroup(
-            jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEscritorioLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+        jpEscritorioLayout.setVerticalGroup(
+            jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpEscritorioLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
+                    .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlnom)
-                    .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addComponent(jlnom)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEscritorioLayout.createSequentialGroup()
+                        .addComponent(jtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlPre)
                     .addComponent(jtPre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlSto)
-                    .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrEst)
-                    .addComponent(jlEst))
-                .addGap(7, 7, 7)
-                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbMod)
-                    .addComponent(jbNue)
-                    .addComponent(jbEli))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jlSto))
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpEscritorioLayout.createSequentialGroup()
+                        .addComponent(jlEst)
+                        .addGap(29, 29, 29)
+                        .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbNue)
+                            .addComponent(jbMod)
+                            .addComponent(jbEli)))
+                    .addComponent(jrEst))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jdEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -316,6 +315,25 @@ private Producto nuevoPro = new Producto();
         nuevoPro.isEstado();
        
     }//GEN-LAST:event_jrEstActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        dispose();
+      /*  
+        Productos vistaProductos = new Productos();
+        vistaProductos.setVisible(true);
+        jpEscritorio.add(vistaProductos);
+        jpEscritorio.revalidate();
+        vistaProductos.moveToFront();
+         jpEscritorio.removeAll();
+        jpEscritorio.repaint();
+        */
+        Productos vistaProducto = new Productos();
+        vistaProducto.setVisible(true);
+        vistaProducto.moveToFront();
+        vistaProducto.getContentPane().setBackground(new Color(255, 153, 153));
+        jpEscritorio.add(vistaProducto);
+    }//GEN-LAST:event_formMouseClicked
     private void limpiarCampos(){
         jtId.setText("");
         jtNom.setText("");
@@ -332,11 +350,11 @@ private Producto nuevoPro = new Producto();
     private javax.swing.JButton jbEli;
     private javax.swing.JButton jbMod;
     private javax.swing.JButton jbNue;
-    private javax.swing.JDesktopPane jdEscritorio;
     private javax.swing.JLabel jlEst;
     private javax.swing.JLabel jlPre;
     private javax.swing.JLabel jlSto;
     private javax.swing.JLabel jlnom;
+    private javax.swing.JPanel jpEscritorio;
     private javax.swing.JRadioButton jrEst;
     private javax.swing.JTextField jtDes;
     private javax.swing.JTextField jtId;
