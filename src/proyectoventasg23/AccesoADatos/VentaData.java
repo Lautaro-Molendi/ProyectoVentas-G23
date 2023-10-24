@@ -25,12 +25,16 @@ public class VentaData {
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, venta.getCliente().getIdCliente());
+            if(venta!=null && venta.getCliente() != null){
+            ps.setInt(1, venta.getIdCliente());
+                    }else{
+                JOptionPane.showMessageDialog(null,"la venta o el cliente es nula");};
             ps.setDate(2, java.sql.Date.valueOf(venta.getFechaVenta()));
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
+                
                 venta.setIdVenta(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Venta registrada");
             }

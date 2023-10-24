@@ -25,6 +25,7 @@ public class Consultas extends javax.swing.JInternalFrame {
     public ClienteData clientDat= new ClienteData();
     public Producto nuevoProducto= null;
     public ProductoData proData=new ProductoData();
+   
     private DefaultTableModel modeloTabla= new DefaultTableModel(){
         public boolean isCellEditable(int fila, int column) {
                 return false;
@@ -303,10 +304,13 @@ public class Consultas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadProdxFechaActionPerformed
 
     private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
-      Date fecha= jDateProdXventa.getDate();
+     Date fecha= jDateProdXventa.getDate();
      LocalDate fechaSeleccionada = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
      
      List<Producto> productos = detalleData.listarProductosDeVentaEnFecha(fechaSeleccionada);
+     for (Producto producto : productos) {
+        modeloTabla.addRow(new Object[]{producto.getNombreProducto(), producto.getDescripcion(), producto.getPrecioActual()});
+    }
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
 

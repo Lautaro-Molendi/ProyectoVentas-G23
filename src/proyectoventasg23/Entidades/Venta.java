@@ -48,6 +48,16 @@ public class Venta {
     public void setFechaVenta(LocalDate FechaVenta) {
         this.FechaVenta = FechaVenta;
     }
+    
+    public int getIdCliente() {
+        if (cliente != null) {
+            return cliente.getIdCliente();
+        }else {
+            return -1;
+        
+        }};
+    
+    
 
     @Override
     public String toString() {
