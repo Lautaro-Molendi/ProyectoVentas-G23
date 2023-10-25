@@ -121,7 +121,9 @@ public class ProductoData {
             producto.setDescripcion(rs.getString("descripcion"));
             producto.setPrecioActual(rs.getDouble("precioActual"));
             producto.setStock(rs.getInt("stock"));      
-        }
+        } else {
+           JOptionPane.showMessageDialog(null, "El producto no existe");
+                   }
          ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla producto");

@@ -99,29 +99,31 @@ public class ClienteData {
     return clientes;
           
   } 
-      public Cliente buscarCliente(int idCliente) {
-        Cliente cliente = null;
-        String sql = "SELECT apellido, nombre, domicilio, telefono"
-                + " FROM cliente WHERE idCliente = ? ";
-        PreparedStatement ps = null;
+  
+      public Cliente buscarCliente (int idCliente){
+      Cliente cliente =null;
+    String sql = "SELECT apellido, nombre, domicilio, telefono"
+            + " FROM cliente WHERE idCliente = ?";
+    PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idCliente);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                cliente = new Cliente();
-                
-                cliente.setIdCliente(rs.getInt(idCliente));
-                cliente.setApellido(rs.getString("apellido"));
-                cliente.setNombre(rs.getString("nombre"));
-                cliente.setDomicilio(rs.getString("domicilio"));
-                cliente.setTelefono(rs.getString("telefono"));
-            }else{JOptionPane.showMessageDialog(null, "No existe el Cliente buscado");}
-            ps.close();
+            if (rs.next()){
+            cliente = new Cliente();
+            cliente.setIdCliente(idCliente);
+            cliente.setApellido(rs.getString("apellido"));
+            cliente.setNombre(rs.getString("nombre"));
+            cliente.setDomicilio(rs.getString("domicilio"));
+            cliente.setTelefono(rs.getString("telefono"));     
+        } else {
+           JOptionPane.showMessageDialog(null, "El cliente no existe");
+                   }
+         ps.close();
         } catch (SQLException ex) {
-            System.out.println("");
-            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de clientes"+ex);
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla producto");
         }
-        return cliente;
-    }
+    return cliente;
+  }   
+    
 }
