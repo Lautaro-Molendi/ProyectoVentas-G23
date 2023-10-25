@@ -20,6 +20,9 @@ public class Venta {
         this.FechaVenta = FechaVenta;
     }
     
+    public Venta(int idVenta) {
+        this.idVenta = idVenta;
+    }
     
 
     public Venta(int idVenta, Cliente cliente, LocalDate FechaVenta) {

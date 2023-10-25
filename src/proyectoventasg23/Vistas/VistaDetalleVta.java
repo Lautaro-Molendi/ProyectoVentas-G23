@@ -43,17 +43,19 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
+        jTextIdVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextIdVentaActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Codigo de venta");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Producto");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cantidad");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Precio");
 
         jBtnBuscar.setText("Buscar");
@@ -63,7 +65,6 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Codigo de Detalle");
 
         jBtnNuevo.setText("Nuevo Detalle");
@@ -74,10 +75,25 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         });
 
         jBtnModificar.setText("Modificar");
+        jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnModificarActionPerformed(evt);
+            }
+        });
 
         jBtnEliminar.setText("Eliminar");
+        jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEliminarActionPerformed(evt);
+            }
+        });
 
         jBTnLimpiar.setText("Limpiar");
+        jBTnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,6 +229,57 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Verifique la validez de los campos");
         }
     }//GEN-LAST:event_jBtnNuevoActionPerformed
+
+    private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
+
+   try {
+        int idDetalleVenta = Integer.parseInt(jTextIdDetalle.getText());
+        int idVenta = Integer.parseInt(jTextIdVenta.getText());
+        int idProducto = Integer.parseInt(jTextProducto.getText());
+        int cantidad = Integer.parseInt(jTextCantidad.getText());
+        double precioVenta = Double.parseDouble(jTextPrecio.getText());
+
+        Producto producto = new Producto(idProducto);
+
+        Venta venta = new Venta(idVenta);
+
+        DetalleVenta detalleVenta = new DetalleVenta(idDetalleVenta, venta, producto, cantidad, precioVenta);
+
+        DetalleVentaData detalleVentaData = new DetalleVentaData();
+        detalleVentaData.modificarDetalleVenta(detalleVenta);
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Asegurate de ingresar números válidos.");
+    }
+    }//GEN-LAST:event_jBtnModificarActionPerformed
+
+    private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
+    try {
+        int idDetalleVenta = Integer.parseInt(jTextIdDetalle.getText());
+
+        DetalleVenta detalleVenta = new DetalleVenta();
+        detalleVenta.setIdDetalleVenta(idDetalleVenta);
+
+        DetalleVentaData detalleVentaData = new DetalleVentaData();
+        detalleVentaData.eliminarDetalleVenta(idDetalleVenta);
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Asegurate de ingresar un número válido en el campo de ID de Detalle de Venta.");
+    }
+    }//GEN-LAST:event_jBtnEliminarActionPerformed
+
+    private void jTextIdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextIdVentaActionPerformed
+
+    private void jBTnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTnLimpiarActionPerformed
+
+    jTextIdDetalle.setText("");
+    jTextIdVenta.setText("");         
+    jTextProducto.setText("");      
+    jTextCantidad.setText(""); 
+    jTextPrecio.setText("");
+    }//GEN-LAST:event_jBTnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

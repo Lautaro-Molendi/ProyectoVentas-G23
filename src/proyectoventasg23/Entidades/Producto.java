@@ -12,6 +12,10 @@ public class Producto {
 
     public Producto() {
     }
+    
+    public Producto(int idProducto) {
+        this.idProducto = idProducto;
+    }
 
        public Producto(String nombreProducto, String descripcion, double precioActual, int stock, boolean estado) {
         this.nombreProducto = nombreProducto;
@@ -31,7 +35,6 @@ public class Producto {
         this.estado = estado;
     }
  
-    
 
     public int getIdProducto() {
         return idProducto;
