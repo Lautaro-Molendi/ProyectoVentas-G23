@@ -46,7 +46,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         jTableVta = new javax.swing.JTable();
         jBtnModificar = new javax.swing.JButton();
         jBtnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBtnGenerarDet = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -104,7 +104,12 @@ public class VistaVentas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Generar Detalle");
+        jBtnGenerarDet.setText("Generar Detalle");
+        jBtnGenerarDet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGenerarDetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,7 +139,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBtnEliminar)
                                 .addGap(80, 80, 80)
-                                .addComponent(jButton1))
+                                .addComponent(jBtnGenerarDet))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
@@ -157,7 +162,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnModificar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
+                        .addComponent(jBtnGenerarDet)
                         .addComponent(jBtnEliminar)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -219,6 +224,13 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Selecciona una venta para eliminar.");
     }
     }//GEN-LAST:event_jBtnEliminarActionPerformed
+
+    private void jBtnGenerarDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGenerarDetActionPerformed
+        VistaDetalleVta vistaDet= new VistaDetalleVta();
+        menuPpal.escritorio.add(vistaDet);
+        vistaDet.setVisible(true);
+        vistaDet.moveToFront();
+    }//GEN-LAST:event_jBtnGenerarDetActionPerformed
     
     public void agregarClientes() {
         ClienteData clienteData = new ClienteData();
@@ -241,9 +253,9 @@ public class VistaVentas extends javax.swing.JInternalFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnEliminar;
+    private javax.swing.JButton jBtnGenerarDet;
     private javax.swing.JButton jBtnModificar;
     private javax.swing.JButton jBtnRegistrarVenta;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Cliente> jComboClientes;
     private com.toedter.calendar.JDateChooser jDateFechaVta;
     private javax.swing.JLabel jLabelBuscarCliente;

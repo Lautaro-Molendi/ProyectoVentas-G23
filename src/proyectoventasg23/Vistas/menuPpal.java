@@ -282,7 +282,7 @@ public class menuPpal extends javax.swing.JFrame {
     private void jLabConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabConsultaMouseClicked
         escritorio.removeAll();
         escritorio.repaint();
-        Consultas vistaConsultas = new Consultas();
+        VistaConsultas vistaConsultas = new VistaConsultas();
         vistaConsultas.setVisible(true);
         escritorio.add(vistaConsultas);
         escritorio.moveToFront(vistaConsultas);// TODO add your handling code here:

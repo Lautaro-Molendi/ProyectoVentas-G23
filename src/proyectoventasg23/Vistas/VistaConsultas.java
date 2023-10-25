@@ -16,7 +16,7 @@ import proyectoventasg23.AccesoADatos.*;
  *
  * @author luciana
  */
-public class Consultas extends javax.swing.JInternalFrame {
+public class VistaConsultas extends javax.swing.JInternalFrame {
     public VentaData ventaD= new VentaData();
     public Venta ventaNueva=null;
     public DetalleVentaData detalleData= new DetalleVentaData();
@@ -26,15 +26,11 @@ public class Consultas extends javax.swing.JInternalFrame {
     public Producto nuevoProducto= null;
     public ProductoData proData=new ProductoData();
    
-    private DefaultTableModel modeloTabla= new DefaultTableModel(){
-        public boolean isCellEditable(int fila, int column) {
-                return false;
-        }
-    };
+    private DefaultTableModel modeloTabla= new DefaultTableModel();
     
-    public Consultas() {
+    public VistaConsultas() {
         initComponents();      
-        jPanelProdxFecha.setVisible(false);
+        
     }
 
     
@@ -53,12 +49,6 @@ public class Consultas extends javax.swing.JInternalFrame {
         jLBuscarVxF = new javax.swing.JLabel();
         jLBuscarCxC = new javax.swing.JLabel();
         jBtnAceptar = new javax.swing.JButton();
-        jPanelProdxFecha = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jDateProdXventa = new com.toedter.calendar.JDateChooser();
-        jBtnBuscar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTablaProdFecha = new javax.swing.JTable();
 
         setTitle("Consultas");
 
@@ -99,7 +89,7 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         jLBuscarPxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLBuscarPxF.setForeground(new java.awt.Color(51, 51, 51));
-        jLBuscarPxF.setText("Buscar productos por fecha");
+        jLBuscarPxF.setText("Buscar productos de una venta");
 
         jLBuscarVxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLBuscarVxC.setForeground(new java.awt.Color(51, 51, 51));
@@ -111,7 +101,7 @@ public class Consultas extends javax.swing.JInternalFrame {
 
         jLBuscarCxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLBuscarCxC.setForeground(new java.awt.Color(51, 51, 51));
-        jLBuscarCxC.setText("Buscar clientes segun compra");
+        jLBuscarCxC.setText("Buscar clientes por producto");
 
         jBtnAceptar.setBackground(new java.awt.Color(255, 102, 102));
         jBtnAceptar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -123,87 +113,6 @@ public class Consultas extends javax.swing.JInternalFrame {
                 jBtnAceptarActionPerformed(evt);
             }
         });
-
-        jPanelProdxFecha.setBackground(new java.awt.Color(255, 153, 153));
-
-        jLabel1.setBackground(new java.awt.Color(255, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Ingrese la fecha");
-
-        jDateProdXventa.setBackground(new java.awt.Color(204, 204, 204));
-        jDateProdXventa.setForeground(new java.awt.Color(255, 153, 153));
-        jDateProdXventa.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-
-        jBtnBuscar.setBackground(new java.awt.Color(255, 102, 102));
-        jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jBtnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnBuscar.setText("Buscar");
-        jBtnBuscar.setBorder(null);
-        jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnBuscarActionPerformed(evt);
-            }
-        });
-
-        jScrollPane1.setBackground(new java.awt.Color(255, 153, 153));
-
-        jTablaProdFecha.setBackground(new java.awt.Color(255, 153, 153));
-        jTablaProdFecha.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jTablaProdFecha.setForeground(new java.awt.Color(51, 51, 51));
-        jTablaProdFecha.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTablaProdFecha.setGridColor(new java.awt.Color(255, 102, 102));
-        jTablaProdFecha.setSelectionBackground(new java.awt.Color(255, 51, 102));
-        jTablaProdFecha.setSelectionForeground(new java.awt.Color(255, 153, 153));
-        jScrollPane1.setViewportView(jTablaProdFecha);
-
-        javax.swing.GroupLayout jPanelProdxFechaLayout = new javax.swing.GroupLayout(jPanelProdxFecha);
-        jPanelProdxFecha.setLayout(jPanelProdxFechaLayout);
-        jPanelProdxFechaLayout.setHorizontalGroup(
-            jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel1)
-                        .addGap(58, 58, 58)
-                        .addComponent(jDateProdXventa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(196, Short.MAX_VALUE))
-            .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(122, Short.MAX_VALUE)))
-        );
-        jPanelProdxFechaLayout.setVerticalGroup(
-            jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateProdXventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(60, 60, 60)
-                .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(376, Short.MAX_VALUE))
-            .addGroup(jPanelProdxFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelProdxFechaLayout.createSequentialGroup()
-                    .addGap(251, 251, 251)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(263, Short.MAX_VALUE)))
-        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,14 +134,12 @@ public class Consultas extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLBuscarPxF)
-                            .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLBuscarCxC)
-                            .addComponent(jLBuscarVxF))
+                            .addComponent(jLBuscarVxF)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(725, 725, 725))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 327, Short.MAX_VALUE)
-                    .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,27 +160,24 @@ public class Consultas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadVentaxFecha)
                     .addComponent(jLBuscarVxF))
-                .addGap(53, 53, 53)
+                .addGap(37, 37, 37)
                 .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(311, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelProdxFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -282,9 +186,10 @@ public class Consultas extends javax.swing.JInternalFrame {
 
     private void jBtnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAceptarActionPerformed
         if(jRadProdxFecha.isSelected()){
-            jPanelProdxFecha.setVisible(true);  
-            armarCabecera();
-        }
+            
+           // armarCabecera();
+        }else if (jRadventaxCliente.isSelected()){
+       }
     }//GEN-LAST:event_jBtnAceptarActionPerformed
 
     private void jRadClientesyProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadClientesyProdActionPerformed
@@ -303,37 +208,21 @@ public class Consultas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadProdxFechaActionPerformed
 
-    private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
-     Date fecha= jDateProdXventa.getDate();
-     LocalDate fechaSeleccionada = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-     
-     List<Producto> productos = detalleData.listarProductosDeVentaEnFecha(fechaSeleccionada);
-     for (Producto producto : productos) {
-        modeloTabla.addRow(new Object[]{producto.getNombreProducto(), producto.getDescripcion(), producto.getPrecioActual()});
-    }
-    }//GEN-LAST:event_jBtnBuscarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup grupoConsulta;
     private javax.swing.JButton jBtnAceptar;
-    private javax.swing.JButton jBtnBuscar;
-    private com.toedter.calendar.JDateChooser jDateProdXventa;
     private javax.swing.JLabel jLBuscarCxC;
     private javax.swing.JLabel jLBuscarPxF;
     private javax.swing.JLabel jLBuscarVxC;
     private javax.swing.JLabel jLBuscarVxF;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelProdxFecha;
     private javax.swing.JRadioButton jRadClientesyProd;
     private javax.swing.JRadioButton jRadProdxFecha;
     private javax.swing.JRadioButton jRadVentaxFecha;
     private javax.swing.JRadioButton jRadventaxCliente;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablaProdFecha;
     // End of variables declaration//GEN-END:variables
-  private void armarCabecera(){
+  /*private void armarCabecera(){
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("Descripción");
         modeloTabla.addColumn("Precio");
@@ -343,5 +232,5 @@ public class Consultas extends javax.swing.JInternalFrame {
     private void vaciarTabla () {
         for (int i = modeloTabla.getRowCount()-1; i >=0;i--){
             modeloTabla.removeRow(i);
-        }}
+        }}*/
 }

@@ -138,12 +138,13 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
 
         if (cliente != null) {
             Venta venta = ventaData.buscarVenta(idVenta);
+            Cliente clienteSeleccionado = new Cliente();
+           clienteSeleccionado.setIdCliente(cliente.getIdCliente());
+              venta.setCliente(clienteSeleccionado);
             if (venta != null) {
-                // Actualizar los campos de la venta
                 venta.setCliente(cliente);
-                venta.setFechaVenta(fechaVenta);
+                venta.setFechaVenta(fechaVenta);               
 
-                // Luego, llama al método para modificar la venta
                 ventaData.modificarVenta(venta);
 
                 JOptionPane.showMessageDialog(this, "Venta actualizada correctamente");

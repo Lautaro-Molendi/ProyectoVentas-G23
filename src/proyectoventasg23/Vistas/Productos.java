@@ -11,7 +11,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ProductoData;
 import proyectoventasg23.Entidades.Producto;
-
+//FALTA LIMPIAR CAMPOS
 
 
 public class Productos extends javax.swing.JInternalFrame {
@@ -194,7 +194,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
     }//GEN-LAST:event_jbModActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        // TODO add your handling code here:
+       
         try {
             String nombre = jtNom.getText();
             String descripcion = jtDes.getText();

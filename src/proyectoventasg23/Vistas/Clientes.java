@@ -4,6 +4,8 @@ package proyectoventasg23.Vistas;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ClienteData;
 import proyectoventasg23.Entidades.Cliente;
+//FALTA BOTON LIMPIAR CAMPOS
+//NO RECONOCE ID DE CLIENTE PARA BUSCAR
 
 public class Clientes extends javax.swing.JInternalFrame {
 

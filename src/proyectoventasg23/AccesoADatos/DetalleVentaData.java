@@ -26,15 +26,15 @@ public class DetalleVentaData {
     }
 
     public void guardarDetalleVenta(DetalleVenta detalleVenta) {
-        String sql = "INSERT INTO detalleVenta (cantidad, idVenta, precioVenta, idProducto)"
+        String sql = "INSERT INTO detalleVenta (idVenta, idProducto, cantidad, precioVenta)"
                 + " VALUES (?, ?, ?, ?)";
-
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, detalleVenta.getCantidad());
-            ps.setInt(2, detalleVenta.getVenta().getIdVenta());
-            ps.setDouble(3, detalleVenta.getPrecioVenta());
-            ps.setInt(4, detalleVenta.getProducto().getIdProducto());
+
+            ps.setInt(1, detalleVenta.getVenta().getIdVenta());
+            ps.setInt(2, detalleVenta.getProducto().getIdProducto());
+            ps.setInt(3, detalleVenta.getCantidad());
+            ps.setDouble(4, detalleVenta.getPrecioVenta());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
@@ -49,15 +49,15 @@ public class DetalleVentaData {
     }
 
     public void modificarDetalleVenta(DetalleVenta detalleVenta) {
-        String sql = "UPDATE detalleVenta SET cantidad = ?, idVenta = ?, precioVenta = ?, idProducto = ?"
+        String sql = "UPDATE detalleVenta SET  idVenta = ?, idProducto = ?,cantidad = ?, precioVenta = ? "
                 + " WHERE idDetalleVenta = ?";
-
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, detalleVenta.getCantidad());
+
+            ps.setInt(2, detalleVenta.getProducto().getIdProducto());
             ps.setInt(2, detalleVenta.getVenta().getIdVenta());
-            ps.setDouble(3, detalleVenta.getPrecioVenta());
-            ps.setInt(4, detalleVenta.getProducto().getIdProducto());
+            ps.setInt(3, detalleVenta.getCantidad());
+            ps.setDouble(4, detalleVenta.getPrecioVenta());
             ps.setInt(5, detalleVenta.getIdDetalleVenta());
             int exito = ps.executeUpdate();
 
@@ -117,14 +117,10 @@ public List<DetalleVenta> listarDetalleVenta() {
         }
         return detallesVenta;
     }
-
-
-
-
   
 public DetalleVenta buscarDetalleVenta(int id) {
     DetalleVenta detalleVenta = null;
-    String sql = "SELECT idDetalleVenta, cantidad, precioVenta, idVenta, idProducto " +
+    String sql = "SELECT idDetalleVenta, idVenta, idProducto, cantidad, precioVenta " +
                  "FROM detalleVenta " +
                  "WHERE idDetalleVenta = ?";
     PreparedStatement ps = null;
@@ -135,16 +131,18 @@ public DetalleVenta buscarDetalleVenta(int id) {
         if (rs.next()) {
             detalleVenta = new DetalleVenta();
             detalleVenta.setIdDetalleVenta(id);
+             Venta venta = new Venta();
+            venta.setIdVenta(rs.getInt("idVenta"));
+            detalleVenta.setVenta(venta);
+             Producto producto = productoData.buscarProducto(rs.getInt("idProducto"));
+            producto.setIdProducto(rs.getInt("idProducto"));
+            detalleVenta.setProducto(producto);
             detalleVenta.setCantidad(rs.getInt("cantidad"));
             detalleVenta.setPrecioVenta(rs.getDouble("precioVenta"));
 
-            Venta venta = new Venta();
-            venta.setIdVenta(rs.getInt("idVenta"));
-            detalleVenta.setVenta(venta);
+           
 
-            Producto producto = productoData.buscarProducto(rs.getInt("idProducto"));
-            producto.setIdProducto(rs.getInt("idProducto"));
-            detalleVenta.setProducto(producto);
+           
         } else {
             JOptionPane.showMessageDialog(null, "No existe el detalle de venta buscado");
         }
@@ -157,7 +155,7 @@ public DetalleVenta buscarDetalleVenta(int id) {
 
 public List<DetalleVenta> obtenerDetallesVentaDeVenta(Venta venta)  {
     List<DetalleVenta> detalles = new ArrayList<>();
-    String sql = "SELECT idDetalleVenta, cantidad, precioVenta, idProducto FROM detalleVenta WHERE idVenta = ?";
+    String sql = "SELECT idDetalleVenta, idProducto ,cantidad, precioVenta FROM detalleVenta WHERE idVenta = ?";
     
     try (PreparedStatement ps = connection.prepareStatement(sql)) {
         ps.setInt(1, venta.getIdVenta());
@@ -166,6 +164,8 @@ public List<DetalleVenta> obtenerDetallesVentaDeVenta(Venta venta)  {
         while (rs.next()) {
             DetalleVenta detalle = new DetalleVenta();
             detalle.setIdDetalleVenta(rs.getInt("idDetalleVenta"));
+            //detalle.setProducto(rs.getInt("idProducto"));
+           //falta la linea de obtener Producto
             detalle.setCantidad(rs.getInt("cantidad"));
             detalle.setPrecioVenta(rs.getDouble("precioVenta"));
             detalle.setVenta(venta);

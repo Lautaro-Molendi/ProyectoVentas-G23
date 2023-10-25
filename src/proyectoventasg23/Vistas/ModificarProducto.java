@@ -270,14 +270,12 @@ private Producto nuevoPro = new Producto();
     }//GEN-LAST:event_jbModActionPerformed
 
     private void jbBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusActionPerformed
-        // TODO add your handling code here:
-        try{
-            System.out.println("el número es: " +Integer.parseInt(jtId.getText()));
+        
+        try{            
             int idProducto = Integer.parseInt(jtId.getText());
             nuevoPro = proData.buscarProducto(idProducto);
             nuevoPro.setEstado(true);
-            if (nuevoPro!=null){
-                
+            if (nuevoPro!=null){                
              jtNom.setText(nuevoPro.getNombreProducto());
              jtDes.setText(nuevoPro.getDescripcion());    
              jtPre.setText(nuevoPro.getPrecioActual()+ "");
