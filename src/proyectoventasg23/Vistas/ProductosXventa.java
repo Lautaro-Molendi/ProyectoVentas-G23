@@ -9,12 +9,12 @@ package proyectoventasg23.Vistas;
  *
  * @author luciana
  */
-public class PodXventa extends javax.swing.JInternalFrame {
+public class ProductosXventa extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PodXFecha
      */
-    public PodXventa() {
+    public ProductosXventa() {
         initComponents();
     }
 

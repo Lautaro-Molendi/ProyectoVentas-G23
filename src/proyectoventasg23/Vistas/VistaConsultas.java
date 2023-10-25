@@ -12,12 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import proyectoventasg23.Entidades.*;
 import proyectoventasg23.AccesoADatos.*;
 
-/**
- *
- * @author luciana
- */
+
 public class VistaConsultas extends javax.swing.JInternalFrame {
-    public VentaData ventaD= new VentaData();
+    /*public VentaData ventaD= new VentaData();
     public Venta ventaNueva=null;
     public DetalleVentaData detalleData= new DetalleVentaData();
     public DetalleVenta nuevoDetalle=null;
@@ -26,21 +23,18 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
     public Producto nuevoProducto= null;
     public ProductoData proData=new ProductoData();
    
-    private DefaultTableModel modeloTabla= new DefaultTableModel();
+    private DefaultTableModel modeloTabla= new DefaultTableModel();*/
     
     public VistaConsultas() {
-        initComponents();      
-        
-    }
-
-    
+        initComponents();           
+    }    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         grupoConsulta = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jRadProdxFecha = new javax.swing.JRadioButton();
+        jRadProdxVentaFecha = new javax.swing.JRadioButton();
         jRadVentaxFecha = new javax.swing.JRadioButton();
         jRadventaxCliente = new javax.swing.JRadioButton();
         jRadClientesyProd = new javax.swing.JRadioButton();
@@ -55,11 +49,11 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jRadProdxFecha.setBackground(new java.awt.Color(255, 153, 153));
-        grupoConsulta.add(jRadProdxFecha);
-        jRadProdxFecha.addActionListener(new java.awt.event.ActionListener() {
+        jRadProdxVentaFecha.setBackground(new java.awt.Color(255, 153, 153));
+        grupoConsulta.add(jRadProdxVentaFecha);
+        jRadProdxVentaFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadProdxFechaActionPerformed(evt);
+                jRadProdxVentaFechaActionPerformed(evt);
             }
         });
 
@@ -128,7 +122,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                         .addGap(760, 760, 760))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadProdxFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadProdxVentaFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadClientesyProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadVentaxFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
@@ -147,7 +141,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLBuscarPxF)
-                    .addComponent(jRadProdxFecha))
+                    .addComponent(jRadProdxVentaFecha))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadventaxCliente)
@@ -185,28 +179,46 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAceptarActionPerformed
-        if(jRadProdxFecha.isSelected()){
-            
-           // armarCabecera();
-        }else if (jRadventaxCliente.isSelected()){
-       }
+        if(jRadProdxVentaFecha.isSelected()){
+          ProductosXventa productosXventa =new ProductosXventa();
+        menuPpal.escritorio.add(productosXventa);
+        productosXventa.setVisible(true);
+        productosXventa.moveToFront();
+        }else if (jRadClientesyProd.isSelected()){
+        ClientesXproducto clientexProd= new ClientesXproducto();
+       menuPpal.escritorio.add(clientexProd);
+       clientexProd.setVisible(true);
+       clientexProd.moveToFront();
+       }else if(jRadventaxCliente.isSelected()){
+       VentasXcliente ventasxCliente = new VentasXcliente();
+        menuPpal.escritorio.add(ventasxCliente);
+        ventasxCliente.setVisible(true);
+        ventasxCliente.moveToFront();
+       }else if(jRadVentaxFecha.isSelected()){
+       VentasXfecha ventasxFecha= new VentasXfecha();
+        menuPpal.escritorio.add(ventasxFecha);
+        ventasxFecha.setVisible(true);
+        ventasxFecha.moveToFront();
+       }else{JOptionPane.showMessageDialog(null,"Debe seleccionar un área de consulta");}
+
     }//GEN-LAST:event_jBtnAceptarActionPerformed
 
     private void jRadClientesyProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadClientesyProdActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jRadClientesyProdActionPerformed
 
     private void jRadventaxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadventaxClienteActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jRadventaxClienteActionPerformed
 
     private void jRadVentaxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadVentaxFechaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jRadVentaxFechaActionPerformed
 
-    private void jRadProdxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadProdxFechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadProdxFechaActionPerformed
+    private void jRadProdxVentaFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadProdxVentaFechaActionPerformed
+          
+    }//GEN-LAST:event_jRadProdxVentaFechaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,7 +230,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLBuscarVxF;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadClientesyProd;
-    private javax.swing.JRadioButton jRadProdxFecha;
+    private javax.swing.JRadioButton jRadProdxVentaFecha;
     private javax.swing.JRadioButton jRadVentaxFecha;
     private javax.swing.JRadioButton jRadventaxCliente;
     // End of variables declaration//GEN-END:variables
