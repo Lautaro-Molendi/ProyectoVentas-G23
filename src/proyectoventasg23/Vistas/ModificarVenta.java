@@ -127,7 +127,36 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
-        try {
+        
+         try {
+        int idVenta = Integer.parseInt(jTextIdVenta.getText());
+        int idCliente = Integer.parseInt(jTextIdCliente.getText());
+        LocalDate fechaVenta = jDateFechaVta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        ClienteData clienteData = new ClienteData();
+        Cliente cliente = clienteData.buscarCliente(idCliente);
+
+        if (cliente != null) {
+            Venta venta = ventaData.buscarVenta(idVenta);
+            if (venta != null) {
+                // Actualizar los campos de la venta
+                venta.setCliente(cliente);
+                venta.setFechaVenta(fechaVenta);
+
+                // Luego, llama al método para modificar la venta
+                ventaData.modificarVenta(venta);
+
+                JOptionPane.showMessageDialog(this, "Venta actualizada correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Venta no encontrada");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Cliente no encontrado");
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "ID de venta o ID de cliente no válido");
+    }
+        /*try {
             int idVenta = Integer.parseInt(jTextIdVenta.getText());
             int idCliente = Integer.parseInt(jTextIdCliente.getText());
             LocalDate fechaVenta = jDateFechaVta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -136,7 +165,9 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
             Cliente cliente = clienteData.buscarCliente(idCliente);
             if (cliente != null) {
                 Venta venta = ventaData.buscarVenta(idVenta);
-                venta.setCliente(cliente);
+                 Cliente clienteSeleccionado = new Cliente();
+           clienteSeleccionado.setIdCliente(idCliente.getIdCliente());
+              venta.setCliente(clienteSeleccionado);
                 venta.setFechaVenta(fechaVenta);
                 ventaData.modificarVenta(venta);
                 JOptionPane.showMessageDialog(this, "Venta actualizada correctamente");
@@ -145,7 +176,7 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
             }  
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "ID de venta o ID de cliente no válido");
-        }
+        }*/
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jBtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimpiarActionPerformed

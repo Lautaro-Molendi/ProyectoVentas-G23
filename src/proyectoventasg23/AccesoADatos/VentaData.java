@@ -49,7 +49,7 @@ public class VentaData {
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, venta.getCliente().getIdCliente());
+            ps.setInt(1, venta.getIdCliente());
             ps.setDate(2, java.sql.Date.valueOf(venta.getFechaVenta()));
             ps.setInt(3, venta.getIdVenta());
             int exito = ps.executeUpdate();

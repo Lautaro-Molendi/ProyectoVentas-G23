@@ -2,30 +2,29 @@ package proyectoventasg23.Entidades;
 
 public class DetalleVenta {
     
-    int idDetalleVenta;
-    int cantidad;
+    int idDetalleVenta;    
     Venta venta;
-    double precioVenta;
     Producto producto;
+    int cantidad;
+    double precioVenta;
+   
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int cantidad, Venta venta, double precioVenta, Producto producto) {
-        this.cantidad = cantidad;
+    public DetalleVenta(Venta venta, Producto producto, int cantidad, double precioVenta) {
         this.venta = venta;
-        this.precioVenta = precioVenta;
         this.producto = producto;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
     }
-    
-    
 
-    public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, double precioVenta, Producto producto) {
+    public DetalleVenta(int idDetalleVenta, Venta venta, Producto producto, int cantidad, double precioVenta) {
         this.idDetalleVenta = idDetalleVenta;
-        this.cantidad = cantidad;
         this.venta = venta;
-        this.precioVenta = precioVenta;
         this.producto = producto;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
     }
 
     public int getIdDetalleVenta() {
@@ -36,28 +35,12 @@ public class DetalleVenta {
         this.idDetalleVenta = idDetalleVenta;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public Venta getVenta() {
         return venta;
     }
 
     public void setVenta(Venta venta) {
         this.venta = venta;
-    }
-
-    public double getPrecioVenta() {
-        return precioVenta;
-    }
-
-    public void setPrecioVenta(double precioVenta) {
-        this.precioVenta = precioVenta;
     }
 
     public Producto getProducto() {
@@ -68,10 +51,28 @@ public class DetalleVenta {
         this.producto = producto;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
     @Override
     public String toString() {
-           return "Detalle n°: " + idDetalleVenta + ", cantidad: " + cantidad + ", venta: Venta n°: " + venta.getIdVenta() + ", precioVenta: " + precioVenta + ", producto: Producto: " + producto.getIdProducto();
+        return "DetalleVenta nro: " + idDetalleVenta + ", venta:" + venta + ", producto:" + producto + ", cantidad:" + cantidad + ", precioVenta:" + precioVenta;
     }
+
+    
     
     
 }

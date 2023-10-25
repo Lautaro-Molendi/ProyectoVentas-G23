@@ -2,12 +2,15 @@
 package proyectoventasg23.Entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Venta {
     
-   int idVenta;
-   Cliente cliente; 
-   LocalDate FechaVenta;
+   private int idVenta;
+   private Cliente cliente; 
+   private LocalDate FechaVenta;
+   private List<DetalleVenta> detallesVenta;
 
     public Venta() {
     }
@@ -57,7 +60,12 @@ public class Venta {
         
         }};
     
-    
+    public void agregarDetalleVenta(DetalleVenta detalleVenta) {
+        if (detallesVenta == null) {
+            detallesVenta = new ArrayList<>();
+        }
+        detallesVenta.add(detalleVenta);
+    }
 
     @Override
     public String toString() {

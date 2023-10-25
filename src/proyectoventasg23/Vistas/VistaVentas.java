@@ -46,6 +46,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         jTableVta = new javax.swing.JTable();
         jBtnModificar = new javax.swing.JButton();
         jBtnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -103,6 +104,8 @@ public class VistaVentas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Generar Detalle");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,22 +120,23 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jBtnRegistrarVenta))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
+                                .addComponent(jLabelFechaVta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabelFechaVta)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jBtnRegistrarVenta)
+                                    .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jBtnModificar)
-                        .addGap(111, 111, 111)
-                        .addComponent(jBtnEliminar)))
-                .addContainerGap(546, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBtnModificar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtnEliminar)
+                                .addGap(80, 80, 80)
+                                .addComponent(jButton1))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,15 +149,17 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelFechaVta)
                     .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(44, 44, 44)
                 .addComponent(jBtnRegistrarVenta)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnModificar)
-                    .addComponent(jBtnEliminar))
-                .addContainerGap(231, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jBtnEliminar)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,6 +186,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
 
     private void jBtnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRegistrarVentaActionPerformed
         Cliente cliente = (Cliente) jComboClientes.getSelectedItem();
+        int idClienteSeleccionado = cliente.getIdCliente();
         LocalDate fechaVenta = jDateFechaVta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
         Venta nuevaVenta = new Venta(cliente, fechaVenta);
@@ -190,15 +197,15 @@ public class VistaVentas extends javax.swing.JInternalFrame {
     private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
         int filaSeleccionada = jTableVta.getSelectedRow();
 
-    if (filaSeleccionada >= 0) {
+       if (filaSeleccionada >= 0) {
         Venta ventaSeleccionada = obtenerVentaDesdeTabla(filaSeleccionada);
-
         
         ModificarVenta modifVenta = new ModificarVenta(ventaSeleccionada);
         menuPpal.escritorio.add(modifVenta);
         modifVenta.setVisible(true);
         modifVenta.moveToFront();
     }//GEN-LAST:event_jBtnModificarActionPerformed
+        else{JOptionPane.showMessageDialog(null, "Seleccione una venta de la tabla");}
     }
     private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
          int filaSeleccionada = jTableVta.getSelectedRow();
@@ -236,6 +243,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnModificar;
     private javax.swing.JButton jBtnRegistrarVenta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Cliente> jComboClientes;
     private com.toedter.calendar.JDateChooser jDateFechaVta;
     private javax.swing.JLabel jLabelBuscarCliente;
