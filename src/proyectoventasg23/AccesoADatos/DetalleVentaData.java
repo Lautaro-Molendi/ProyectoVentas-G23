@@ -207,6 +207,39 @@ public List<Producto> listarProductosDeVentaEnFecha(LocalDate fecha) {
     }
     return productos;
 }
+public List<DetalleVenta> obtenerDetallesVentaDeProducto(Producto producto) {
+    List<DetalleVenta> detallesVenta = new ArrayList<>();
+    String sql = "SELECT idDetalleVenta, idVenta, cantidad, precioVenta " +
+                 "FROM detalleVenta " +
+                 "WHERE idProducto = ?";
+
+    try {
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, producto.getIdProducto());
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            DetalleVenta detalleVenta = new DetalleVenta();
+            detalleVenta.setIdDetalleVenta(rs.getInt("idDetalleVenta"));
+            detalleVenta.setCantidad(rs.getInt("cantidad"));
+            detalleVenta.setPrecioVenta(rs.getDouble("precioVenta"));
+
+            int idVenta = rs.getInt("idVenta");
+            VentaData ventaData = new VentaData();
+            Venta venta = ventaData.buscarVenta(idVenta);
+
+            detalleVenta.setVenta(venta);
+            detalleVenta.setProducto(producto);
+
+            detallesVenta.add(detalleVenta);
+        }
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla de detalles de ventas");
+    }
+
+    return detallesVenta;
+}
 
    
 }
