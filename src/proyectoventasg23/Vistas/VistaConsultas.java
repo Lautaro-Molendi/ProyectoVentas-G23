@@ -83,7 +83,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
 
         jLBuscarPxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLBuscarPxF.setForeground(new java.awt.Color(51, 51, 51));
-        jLBuscarPxF.setText("Buscar productos de una venta");
+        jLBuscarPxF.setText("Buscar productos por fecha");
 
         jLBuscarVxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLBuscarVxC.setForeground(new java.awt.Color(51, 51, 51));
@@ -125,15 +125,19 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                             .addComponent(jRadProdxVentaFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadClientesyProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadVentaxFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLBuscarPxF)
-                            .addComponent(jLBuscarCxC)
-                            .addComponent(jLBuscarVxF)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(725, 725, 725))))
+                                .addGap(63, 63, 63)
+                                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jLBuscarPxF))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLBuscarVxF)
+                                    .addComponent(jLBuscarCxC))))
+                        .addGap(737, 737, 737))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +160,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                     .addComponent(jLBuscarVxF))
                 .addGap(37, 37, 37)
                 .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,7 +175,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
