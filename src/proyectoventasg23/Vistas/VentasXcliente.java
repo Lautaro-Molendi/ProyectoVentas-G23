@@ -166,8 +166,6 @@ public class VentasXcliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jbLimpiarActionPerformed
  
-  
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
