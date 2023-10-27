@@ -199,16 +199,21 @@ public class Clientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtApeActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-      
+
     String apellido = jtApe.getText();
     String nombre = jtNom.getText();
     String domicilio = jtDom.getText();
     String telefono = jtTel.getText();
-    
-    Cliente cliente = new Cliente(apellido, nombre, domicilio, telefono);
+     if (apellido.isEmpty()|| nombre.isEmpty()|| domicilio.isEmpty()|| telefono.isEmpty()){
+            JOptionPane.showMessageDialog(this, "no debe haber campos vacios");  
+          } else {
+         Cliente cliente = new Cliente(apellido, nombre, domicilio, telefono);
     
     ClienteData clienteData = new ClienteData();
     clienteData.guardarCliente(cliente);
+     }
+    
+   
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jtDomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDomActionPerformed
