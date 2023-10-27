@@ -253,13 +253,15 @@ private Cliente nuevoCliente = new Cliente ();
           if (ape.isEmpty()|| nom.isEmpty()|| dom.isEmpty()|| tel.isEmpty()){
             JOptionPane.showMessageDialog(this, "no debe haber campos vacios");  
           }
-          
+          else{
           nuevoCliente.setIdCliente(idCliente);
           nuevoCliente.setApellido(ape);
           nuevoCliente.setNombre(nom);
           nuevoCliente.setDomicilio(dom);
           nuevoCliente.setTelefono(tel);
           clienteData.modificarCliente(nuevoCliente);
+          }
+        
           
         } catch (NumberFormatException nfe){
              JOptionPane.showMessageDialog(this, "el id no es valido");
