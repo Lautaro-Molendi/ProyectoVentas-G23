@@ -14,15 +14,15 @@ import proyectoventasg23.Entidades.*;
 
 public class VistaVentas extends javax.swing.JInternalFrame {
     
-   Cliente nuevoCliente= new Cliente();
-   Cliente clienteSeleccionado= new Cliente();
-   ClienteData nuevoCliData= new ClienteData();
+    Cliente nuevoCliente = new Cliente();
+    Cliente clienteSeleccionado = new Cliente();
+    ClienteData nuevoCliData = new ClienteData();
     Venta ventaNueva = null;
-    VentaData vtaData= new VentaData();
-     LocalDate fechaVta=null;
+    VentaData vtaData = new VentaData();
+    LocalDate fechaVta = null;
     private DefaultTableModel modeloTabla;
     private JTable tablaVenta;
-    
+
     
     public VistaVentas() {
         initComponents();
@@ -228,10 +228,18 @@ public class VistaVentas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBtnEliminarActionPerformed
 
     private void jBtnGenerarDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGenerarDetActionPerformed
-        VistaDetalleVta vistaDet= new VistaDetalleVta();
-        menuPpal.escritorio.add(vistaDet);
-        vistaDet.setVisible(true);
-        vistaDet.moveToFront();
+        int filaSeleccionada = jTableVta.getSelectedRow();
+
+    if (filaSeleccionada >= 0) {
+        // Obtengo el valor de idVenta de la fila seleccionada
+        int idVenta = (int) jTableVta.getValueAt(filaSeleccionada, 0);
+
+       VistaDetalleVta detalleDeVenta = new VistaDetalleVta(idVenta);
+
+        menuPpal.escritorio.add(detalleDeVenta);
+        detalleDeVenta.setVisible(true);
+        detalleDeVenta.moveToFront();
+    }
     }//GEN-LAST:event_jBtnGenerarDetActionPerformed
     
     public void agregarClientes() {

@@ -23,7 +23,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
     public Producto nuevoProducto= null;
     public ProductoData proData=new ProductoData();
    
-    private DefaultTableModel modeloTabla= new DefaultTableModel();*/
+    */
     
     public VistaConsultas() {
         initComponents();           
@@ -234,15 +234,5 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadVentaxFecha;
     private javax.swing.JRadioButton jRadventaxCliente;
     // End of variables declaration//GEN-END:variables
-  /*private void armarCabecera(){
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("Descripción");
-        modeloTabla.addColumn("Precio");
-        jTablaProdFecha.setModel(modeloTabla);
-
-        }
-    private void vaciarTabla () {
-        for (int i = modeloTabla.getRowCount()-1; i >=0;i--){
-            modeloTabla.removeRow(i);
-        }}*/
+  
 }
