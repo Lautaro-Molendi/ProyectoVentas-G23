@@ -76,7 +76,7 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jBtnBuscar" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace pref="58" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -162,6 +162,7 @@
                     <Column editable="true" title="Precio" type="java.lang.Object"/>
                   </Table>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>

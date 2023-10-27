@@ -13,7 +13,6 @@ import proyectoventasg23.AccesoADatos.DetalleVentaData;
 import proyectoventasg23.Entidades.Producto;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 public class ProductosXventa extends javax.swing.JInternalFrame {
 
@@ -73,6 +72,7 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
                 "Código", "Producto", "Precio"
             }
         ));
+        jTProductos.setToolTipText("");
         jTProductos.setGridColor(new java.awt.Color(255, 102, 102));
         jTProductos.setSelectionBackground(new java.awt.Color(255, 51, 102));
         jTProductos.setSelectionForeground(new java.awt.Color(255, 153, 153));
@@ -108,7 +108,7 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -150,7 +150,7 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
 
         jTProductos.setModel(model);
     } else {
-        JOptionPane.showMessageDialog(null, "Selecciona una fecha primero.");
+        JOptionPane.showMessageDialog(null, "Selecciona primero una fecha ");
     }
 }
 

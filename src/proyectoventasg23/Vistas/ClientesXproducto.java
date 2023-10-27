@@ -43,15 +43,16 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
 
         jTClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Cliente", "Nombre", "Apellido", "Dirección", "Teléfono"
             }
         ));
+        jTClientes.setToolTipText("");
         jScrollPane1.setViewportView(jTClientes);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
