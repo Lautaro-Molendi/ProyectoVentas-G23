@@ -45,11 +45,12 @@ public class VentasXcliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Busqueda de ventas por cliente");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese el Cliente");
 
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class VentasXcliente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTVentas);
 
+        jbLimpiar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbLimpiar.setText("Limpiar");
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +114,7 @@ public class VentasXcliente extends javax.swing.JInternalFrame {
                     .addComponent(jbLimpiar))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

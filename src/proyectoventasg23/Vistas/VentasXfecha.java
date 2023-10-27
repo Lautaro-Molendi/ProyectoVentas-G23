@@ -31,7 +31,7 @@ public class VentasXfecha extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Busqueda de  ventas por fecha");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese la Fecha:");
@@ -49,6 +49,7 @@ public class VentasXfecha extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTVentas);
 
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +87,7 @@ public class VentasXfecha extends javax.swing.JInternalFrame {
                 .addComponent(jButton1)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

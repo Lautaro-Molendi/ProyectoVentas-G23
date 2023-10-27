@@ -63,7 +63,7 @@ private Producto nuevoPro = new Producto();
 
         jpEscritorio.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Modificar producto");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -86,7 +86,7 @@ private Producto nuevoPro = new Producto();
 
         jtPre.setText("  ");
 
-        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +94,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jbBus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbBus.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbBus.setText("Buscar");
         jbBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +102,7 @@ private Producto nuevoPro = new Producto();
             }
         });
 
-        jbNue.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbNue.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbNue.setText("Nuevo");
         jbNue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +119,7 @@ private Producto nuevoPro = new Producto();
         jlEst.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jlEst.setText("Estado:");
 
-        jbEli.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbEli.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbEli.setText("Eliminar");
         jbEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +237,7 @@ private Producto nuevoPro = new Producto();
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();

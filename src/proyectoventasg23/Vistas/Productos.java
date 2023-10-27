@@ -60,19 +60,19 @@ JInternalFrame vistaProducto = new JInternalFrame();
 
         jpEscritorio.setBackground(new java.awt.Color(255, 153, 153));
 
-        jNombre.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jNombre.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jNombre.setText("Nombre");
 
-        jDescripcion.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jDescripcion.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jDescripcion.setText("Descripción");
 
-        jPrecio.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jPrecio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jPrecio.setText("Precio");
 
-        jStock.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jStock.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jStock.setText("Stock");
 
-        jbGuardar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbGuardar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +80,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
             }
         });
 
-        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbMod.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbMod.setText("Modificar");
         jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
             }
         });
 
-        jbSalir.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ JInternalFrame vistaProducto = new JInternalFrame();
             }
         });
 
-        jbNuevo.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbNuevo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

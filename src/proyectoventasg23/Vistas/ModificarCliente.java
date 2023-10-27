@@ -54,13 +54,13 @@ private Cliente nuevoCliente = new Cliente ();
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Modificar Cliente");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setText("Ingrese el ID del cliente:");
 
-        jbBuscar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbBuscar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +88,7 @@ private Cliente nuevoCliente = new Cliente ();
 
         jtTel.setText("  ");
 
+        jbEliminar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbEliminar.setText("Eliminar");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +96,7 @@ private Cliente nuevoCliente = new Cliente ();
             }
         });
 
+        jbModificar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,7 @@ private Cliente nuevoCliente = new Cliente ();
             }
         });
 
+        jbNuevo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +183,7 @@ private Cliente nuevoCliente = new Cliente ();
                     .addComponent(jbEliminar)
                     .addComponent(jbModificar)
                     .addComponent(jbNuevo))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

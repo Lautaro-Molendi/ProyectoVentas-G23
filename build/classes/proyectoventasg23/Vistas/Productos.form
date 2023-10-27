@@ -144,7 +144,7 @@
         <Component class="javax.swing.JLabel" name="jNombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="18" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
@@ -154,7 +154,7 @@
         <Component class="javax.swing.JLabel" name="jDescripcion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="18" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
           </Properties>
@@ -164,7 +164,7 @@
         <Component class="javax.swing.JLabel" name="jPrecio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="18" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Precio"/>
           </Properties>
@@ -174,7 +174,7 @@
         <Component class="javax.swing.JLabel" name="jStock">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="18" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Stock"/>
           </Properties>
@@ -184,7 +184,7 @@
         <Component class="javax.swing.JButton" name="jbGuardar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="1"/>
+              <Font name="Century Gothic" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
@@ -195,7 +195,7 @@
         <Component class="javax.swing.JButton" name="jbMod">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="1"/>
+              <Font name="Century Gothic" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
@@ -206,7 +206,7 @@
         <Component class="javax.swing.JButton" name="jbSalir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="1"/>
+              <Font name="Century Gothic" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
@@ -217,7 +217,7 @@
         <Component class="javax.swing.JButton" name="jbNuevo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="1"/>
+              <Font name="Century Gothic" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>

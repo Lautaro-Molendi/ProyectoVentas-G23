@@ -56,7 +56,6 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         jPanel1.setToolTipText("");
 
         jLabelBuscarCliente.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabelBuscarCliente.setForeground(new java.awt.Color(51, 51, 51));
         jLabelBuscarCliente.setText("Buscar código de Cliente");
 
         jComboClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -66,9 +65,9 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         });
 
         jLabelFechaVta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabelFechaVta.setForeground(new java.awt.Color(51, 51, 51));
         jLabelFechaVta.setText("Ingrese la fecha de venta");
 
+        jBtnRegistrarVenta.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnRegistrarVenta.setText("Guardar Venta");
         jBtnRegistrarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +89,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableVta);
 
+        jBtnModificar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnModificar.setText("Modificar");
         jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +97,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
             }
         });
 
+        jBtnEliminar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnEliminar.setText("Eliminar");
         jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
             }
         });
 
+        jBtnGenerarDet.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnGenerarDet.setText("Generar Detalle");
         jBtnGenerarDet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

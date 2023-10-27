@@ -35,6 +35,7 @@ public class Clientes extends javax.swing.JInternalFrame {
 
         jpEscritorio.setBackground(new java.awt.Color(255, 153, 153));
 
+        jModificar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jModificar.setText("Modificar");
         jModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,6 +43,7 @@ public class Clientes extends javax.swing.JInternalFrame {
             }
         });
 
+        jbSalir.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +51,7 @@ public class Clientes extends javax.swing.JInternalFrame {
             }
         });
 
+        jBAgregar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBAgregar.setText("Agregar");
         jBAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +95,7 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
 
+        jbNuevo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +149,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                 .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBAgregar)
                     .addComponent(jModificar)

@@ -29,11 +29,12 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Busqueda de clientes que compraron un producto");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese el producto");
 
+        jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnBuscar.setText("Buscar");
         jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +86,7 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
                 .addComponent(jBtnBuscar)
                 .addGap(65, 65, 65)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

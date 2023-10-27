@@ -34,11 +34,10 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Busqueda de productos vendidos en una fecha");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese la fecha");
 
         jDateFecha.setBackground(new java.awt.Color(204, 204, 204));
@@ -109,7 +108,7 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

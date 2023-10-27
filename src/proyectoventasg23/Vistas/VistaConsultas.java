@@ -46,7 +46,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
 
         setTitle("Consultas");
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
         jRadProdxVentaFecha.setBackground(new java.awt.Color(255, 153, 153));
@@ -82,19 +82,15 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
         });
 
         jLBuscarPxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLBuscarPxF.setForeground(new java.awt.Color(51, 51, 51));
         jLBuscarPxF.setText("Buscar productos por fecha");
 
         jLBuscarVxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLBuscarVxC.setForeground(new java.awt.Color(51, 51, 51));
         jLBuscarVxC.setText("Buscar ventas por cliente");
 
         jLBuscarVxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLBuscarVxF.setForeground(new java.awt.Color(51, 51, 51));
         jLBuscarVxF.setText("Buscar ventas por fecha");
 
         jLBuscarCxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLBuscarCxC.setForeground(new java.awt.Color(51, 51, 51));
         jLBuscarCxC.setText("Buscar clientes por producto");
 
         jBtnAceptar.setBackground(new java.awt.Color(255, 102, 102));
@@ -175,7 +171,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
