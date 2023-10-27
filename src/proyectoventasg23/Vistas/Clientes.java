@@ -29,6 +29,7 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jtNom = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jbNuevo = new javax.swing.JButton();
 
         setTitle("Administración de Clientes");
 
@@ -91,6 +92,13 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
 
+        jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpEscritorioLayout = new javax.swing.GroupLayout(jpEscritorio);
         jpEscritorio.setLayout(jpEscritorioLayout);
         jpEscritorioLayout.setHorizontalGroup(
@@ -103,13 +111,14 @@ public class Clientes extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addGap(37, 37, 37)
-                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jpEscritorioLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addComponent(jBAgregar)
-                        .addGap(69, 69, 69)
+                        .addGap(48, 48, 48)
+                        .addComponent(jbNuevo)
+                        .addGap(47, 47, 47)
                         .addComponent(jModificar)
-                        .addGap(76, 76, 76)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbSalir))
                     .addComponent(jtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtDom, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,11 +145,12 @@ public class Clientes extends javax.swing.JInternalFrame {
                 .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBAgregar)
                     .addComponent(jModificar)
-                    .addComponent(jbSalir))
+                    .addComponent(jbSalir)
+                    .addComponent(jbNuevo))
                 .addGap(67, 67, 67))
         );
 
@@ -250,6 +260,12 @@ public class Clientes extends javax.swing.JInternalFrame {
             jtTel.setText("");
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        // TODO add your handling code here:
+         limpiarCampos();
+          Cliente cliente = null;
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAgregar;
@@ -258,6 +274,7 @@ public class Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JButton jModificar;
+    private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
     private javax.swing.JPanel jpEscritorio;
     private javax.swing.JTextField jtApe;
