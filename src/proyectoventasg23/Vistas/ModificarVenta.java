@@ -8,9 +8,10 @@ import proyectoventasg23.AccesoADatos.*;
 import proyectoventasg23.Entidades.*;
 
 public class ModificarVenta extends javax.swing.JInternalFrame {
-          VentaData ventaData;
+          private VentaData ventaData;
           private Venta venta;
-    public ModificarVenta(Venta venta) {
+   
+          public ModificarVenta(Venta venta) {
         
         initComponents();
         this.venta = venta;
@@ -36,6 +37,8 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
         jBtnLimpiar = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Manipulacion de Ventas");
         setVisible(true);
 
@@ -156,27 +159,7 @@ public class ModificarVenta extends javax.swing.JInternalFrame {
     } catch (NumberFormatException ex) {
         JOptionPane.showMessageDialog(this, "ID de venta o ID de cliente no válido");
     }
-        /*try {
-            int idVenta = Integer.parseInt(jTextIdVenta.getText());
-            int idCliente = Integer.parseInt(jTextIdCliente.getText());
-            LocalDate fechaVenta = jDateFechaVta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            
-            ClienteData clienteData = new ClienteData();
-            Cliente cliente = clienteData.buscarCliente(idCliente);
-            if (cliente != null) {
-                Venta venta = ventaData.buscarVenta(idVenta);
-                 Cliente clienteSeleccionado = new Cliente();
-           clienteSeleccionado.setIdCliente(idCliente.getIdCliente());
-              venta.setCliente(clienteSeleccionado);
-                venta.setFechaVenta(fechaVenta);
-                ventaData.modificarVenta(venta);
-                JOptionPane.showMessageDialog(this, "Venta actualizada correctamente");
-            } else {
-                JOptionPane.showMessageDialog(this, "Cliente no encontrado");
-            }  
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "ID de venta o ID de cliente no válido");
-        }*/
+       
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jBtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimpiarActionPerformed

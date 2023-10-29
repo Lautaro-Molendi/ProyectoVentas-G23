@@ -44,6 +44,9 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
         jLBuscarCxC = new javax.swing.JLabel();
         jBtnAceptar = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Consultas");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));

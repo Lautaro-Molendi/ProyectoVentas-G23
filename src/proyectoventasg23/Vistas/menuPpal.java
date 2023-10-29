@@ -285,7 +285,7 @@ public class menuPpal extends javax.swing.JFrame {
         VistaConsultas vistaConsultas = new VistaConsultas();
         vistaConsultas.setVisible(true);
         escritorio.add(vistaConsultas);
-        escritorio.moveToFront(vistaConsultas);// TODO add your handling code here:
+        escritorio.moveToFront(vistaConsultas);
     }//GEN-LAST:event_jLabConsultaMouseClicked
 
     /**

@@ -13,8 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import proyectoventasg23.Entidades.*;
-import proyectoventasg23.AccesoADatos.ProductoData;
-import proyectoventasg23.Entidades.Venta;
+import proyectoventasg23.AccesoADatos.*;
+
 
 public class DetalleVentaData {
     private Connection connection = null;
@@ -53,12 +53,12 @@ public class DetalleVentaData {
                 + " WHERE idDetalleVenta = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-
+            ps.setInt(1, detalleVenta.getVenta().getIdVenta());
             ps.setInt(2, detalleVenta.getProducto().getIdProducto());
-            ps.setInt(2, detalleVenta.getVenta().getIdVenta());
             ps.setInt(3, detalleVenta.getCantidad());
             ps.setDouble(4, detalleVenta.getPrecioVenta());
             ps.setInt(5, detalleVenta.getIdDetalleVenta());
+
             int exito = ps.executeUpdate();
 
             if (exito == 1) {

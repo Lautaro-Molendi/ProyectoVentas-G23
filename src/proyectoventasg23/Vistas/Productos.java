@@ -54,6 +54,8 @@ JInternalFrame vistaProducto = new JInternalFrame();
         jTextField3.setText("jTextField3");
 
         setBorder(null);
+        setClosable(true);
+        setMaximizable(true);
         setResizable(true);
         setTitle("Administración de Productos");
         setPreferredSize(new java.awt.Dimension(800, 600));

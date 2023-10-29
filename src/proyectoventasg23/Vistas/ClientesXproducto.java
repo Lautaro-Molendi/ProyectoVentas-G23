@@ -27,6 +27,7 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
         jTClientes = new javax.swing.JTable();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Busqueda de clientes que compraron un producto");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));

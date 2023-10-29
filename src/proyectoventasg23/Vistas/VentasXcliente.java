@@ -43,6 +43,7 @@ public class VentasXcliente extends javax.swing.JInternalFrame {
         jbLimpiar = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Busqueda de ventas por cliente");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));

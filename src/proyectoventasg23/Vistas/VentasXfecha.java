@@ -29,6 +29,7 @@ public class VentasXfecha extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Busqueda de  ventas por fecha");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
@@ -44,7 +45,7 @@ public class VentasXfecha extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID Venta", "Cleinte", "Fecha Venta"
+                "ID Venta", "Cliente", "Fecha Venta"
             }
         ));
         jScrollPane1.setViewportView(jTVentas);

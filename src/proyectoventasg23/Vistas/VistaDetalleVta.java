@@ -9,34 +9,37 @@ import javax.swing.table.DefaultTableModel;
 import proyectoventasg23.AccesoADatos.*;
 import proyectoventasg23.Entidades.*;
 
-
 public class VistaDetalleVta extends javax.swing.JInternalFrame {
-     
+
     ClienteData nuevoCliData = new ClienteData();
-    Venta venta  = null;
+    Venta venta = null;
     VentaData vtaData = new VentaData();
     LocalDate fechaVta = null;
     private DefaultTableModel modeloTabla;
-    private JTable tablaVenta;   
-   
-    DetalleVentaData detalleData= new DetalleVentaData();
-    
+    private JTable tablaVenta;
+
+    DetalleVentaData detalleData = new DetalleVentaData();
+
     private int idVenta;
     private int idProductoSeleccionado;
+
     public VistaDetalleVta(int idVenta) {
         initComponents();
-         this.idVenta = idVenta;
-         jTextCodigoVta.setText(String.valueOf(idVenta));
-         agregarProductos();
+        this.idVenta = idVenta; //armo el detalle pasando el idVenta obtenido en la vista anterior
+        jTextCodigoVta.setText(String.valueOf(idVenta));
+        agregarProductos();
+        armarTabla();
+        listarDetallesEnTabla();
     }
-     public void agregarProductos() {
+
+    public void agregarProductos() {
         ProductoData productoData = new ProductoData();
         List<Producto> listaProductos = productoData.listarProducto();
         for (Producto prod : listaProductos) {
-            jComboProducto.addItem(prod);
+            jComboProducto.addItem(prod); //agrego al jcombo para elegir producto
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,46 +53,24 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         jTextPrecio = new javax.swing.JTextField();
         jBtnGuardarDetalle = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTableDetalleVta = new javax.swing.JTable();
+        jBtnModificar = new javax.swing.JButton();
+        jBtnEliminar = new javax.swing.JButton();
         jComboProducto = new javax.swing.JComboBox<>();
         jTextCodigoVta = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
+        setResizable(true);
         setTitle("Detalles de Venta");
 
-<<<<<<< Updated upstream
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
-
-        jTextIdVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextIdVentaActionPerformed(evt);
-            }
-        });
-=======
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
->>>>>>> Stashed changes
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Código de venta");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-<<<<<<< Updated upstream
-        jLabel2.setText("Producto");
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setText("Cantidad");
-
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel4.setText("Precio");
-
-        jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBtnBuscar.setText("Buscar");
-        jBtnBuscar.addActionListener(new java.awt.event.ActionListener() {
-=======
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Código de Producto");
 
@@ -102,7 +83,6 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio ");
 
         jTextCantidad.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextCantidadActionPerformed(evt);
             }
@@ -113,30 +93,14 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
             }
         });
 
-<<<<<<< Updated upstream
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel9.setText("Codigo de Detalle");
-
-        jBtnNuevo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBtnNuevo.setText("Nuevo Detalle");
-        jBtnNuevo.addActionListener(new java.awt.event.ActionListener() {
-=======
         jBtnGuardarDetalle.setText("Guardar Detalle");
         jBtnGuardarDetalle.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnGuardarDetalleActionPerformed(evt);
             }
         });
 
-<<<<<<< Updated upstream
-        jBtnModificar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBtnModificar.setText("Modificar");
-        jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnModificarActionPerformed(evt);
-=======
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDetalleVta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -145,92 +109,23 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
->>>>>>> Stashed changes
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableDetalleVta);
 
-<<<<<<< Updated upstream
-        jBtnEliminar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jBtnModificar.setText("Modificar");
+        jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnModificarActionPerformed(evt);
+            }
+        });
+
         jBtnEliminar.setText("Eliminar");
         jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnEliminarActionPerformed(evt);
             }
         });
-
-        jBTnLimpiar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBTnLimpiar.setText("Limpiar");
-        jBTnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTnLimpiarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(38, 38, 38)
-                            .addComponent(jTextIdDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(27, 27, 27)
-                .addComponent(jBtnBuscar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jBtnNuevo)
-                .addGap(18, 18, 18)
-                .addComponent(jBtnModificar)
-                .addGap(18, 18, 18)
-                .addComponent(jBtnEliminar)
-                .addGap(18, 18, 18)
-                .addComponent(jBTnLimpiar)
-                .addGap(0, 108, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextIdDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-=======
-        jButton1.setText("Modificar");
-
-        jButton2.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -245,9 +140,7 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboProducto, 0, 203, Short.MAX_VALUE)
                     .addComponent(jTextCantidad)
@@ -257,16 +150,16 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(196, 196, 196)
                         .addComponent(jBtnGuardarDetalle))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(jButton1)
+                        .addComponent(jBtnModificar)
                         .addGap(106, 106, 106)
-                        .addComponent(jButton2)))
+                        .addComponent(jBtnEliminar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -282,32 +175,21 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
                     .addComponent(jComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
->>>>>>> Stashed changes
                     .addComponent(jLabel3)
                     .addComponent(jTextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< Updated upstream
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBTnLimpiar)
-                    .addComponent(jBtnEliminar)
-                    .addComponent(jBtnModificar)
-                    .addComponent(jBtnNuevo))
-                .addGap(40, 40, 40))
-=======
                 .addGap(36, 36, 36)
                 .addComponent(jBtnGuardarDetalle)
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jBtnModificar)
+                    .addComponent(jBtnEliminar))
                 .addGap(22, 22, 22))
->>>>>>> Stashed changes
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,54 +210,80 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnGuardarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarDetalleActionPerformed
-       /*Integer idVenta= Integer.parseInt(jTextCodigoVta.getText());
-        Producto producto= (Producto) jComboProducto.getSelectedItem();
-        int idProductoSeleccionado = producto.getIdProducto();
-        int cantidad = Integer.parseInt(jTextCantidad.getText());         
-         //consigo el precio por la cantidad
-          double precioFinal= Double.parseDouble(jTextPrecio.getText());    
-          
+        try {
+            Integer idVenta = Integer.parseInt(jTextCodigoVta.getText());
+            Venta venta = new Venta(idVenta);
+            Producto producto = (Producto) jComboProducto.getSelectedItem();
+            int idProductoSeleccionado = producto.getIdProducto();
+            int cantidad = Integer.parseInt(jTextCantidad.getText());
+            //traigo el precio del prod de la tabla
+            double precioProducto = producto.getPrecioActual();
+            double precioFinal = precioProducto * cantidad;  //lo multiplico por la cantidad y lo guardo para el detalle   
 
-            
-    DetalleVenta nuevoDet= new DetalleVenta(idVenta, idProductoSeleccionado,cantidad, precioFinal);
-    
-    DetalleVentaData detalleData= new DetalleVentaData();
-    detalleData.guardarDetalleVenta(nuevoDet);*/
-        Integer idVenta = Integer.parseInt(jTextCodigoVta.getText());
-       // Venta venta= nueva Venta(idVenta);//aca retomar!!!
-        Producto producto = (Producto) jComboProducto.getSelectedItem();
-        int idProductoSeleccionado = producto.getIdProducto();
-        int cantidad = Integer.parseInt(jTextCantidad.getText());
-
-        double precioProducto = producto.getPrecioActual();
-
-        double precioFinal = precioProducto * cantidad;
-      
-      //  DetalleVenta nuevoDet = new DetalleVenta(idVenta, idProductoSeleccionado, cantidad, precioFinal);
-
-       
-        DetalleVentaData detalleData = new DetalleVentaData();
-        detalleData.guardarDetalleVenta(nuevoDet);
+            DetalleVenta nuevoDet = new DetalleVenta(venta, producto, cantidad, precioFinal); //paso el precio final  
+            DetalleVentaData detalleData = new DetalleVentaData();
+            detalleData.guardarDetalleVenta(nuevoDet);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "ingrese numeros en los campos ");
+        }
     }//GEN-LAST:event_jBtnGuardarDetalleActionPerformed
 
     private void jTextCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCantidadActionPerformed
-      
+
         int cantidad = Integer.parseInt(jTextCantidad.getText());
-        Producto producto= (Producto) jComboProducto.getSelectedItem();
+        Producto producto = (Producto) jComboProducto.getSelectedItem();
         double precioProducto = producto.getPrecioActual();
-        double precioTotal = cantidad * precioProducto;        
-        jTextPrecio.setText(String.valueOf(precioTotal));
+        double precioTotal = cantidad * precioProducto;
+        jTextPrecio.setText(String.valueOf(precioTotal));//con este método se actualiza sólo el jText cob el precio del producto * cantidad
     }//GEN-LAST:event_jTextCantidadActionPerformed
 
     private void jTextCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCantidadKeyPressed
-        
+
     }//GEN-LAST:event_jTextCantidadKeyPressed
-    
+
+    private void jBtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEliminarActionPerformed
+        int filaSeleccionada = jTableDetalleVta.getSelectedRow();
+
+        if (filaSeleccionada >= 0) {
+            int idDetalleVenta = (int) jTableDetalleVta.getValueAt(filaSeleccionada, 0);
+            detalleData.eliminarDetalleVenta(idDetalleVenta);
+            listarDetallesEnTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona un detalle de venta para eliminar.");
+        }
+    }//GEN-LAST:event_jBtnEliminarActionPerformed
+
+    private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
+        int filaSeleccionada = jTableDetalleVta.getSelectedRow();
+
+        if (filaSeleccionada >= 0) {
+            //resta desde acá el constructor de la clase con el id
+            DetalleVenta detalleSeleccionado = obtenerDetallesDesdeTabla(filaSeleccionada);
+            ModificarDetalle modificarDet = new ModificarDetalle(detalleSeleccionado);
+            menuPpal.escritorio.add(modificarDet);
+            modificarDet.setVisible(true);
+            modificarDet.moveToFront();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un detalle para modificar");
+        }
+
+    }//GEN-LAST:event_jBtnModificarActionPerformed
+         public void listarDetallesEnTabla() {
+
+             while (modeloTabla.getRowCount() > 0) {
+                 modeloTabla.removeRow(0);
+             }
+             List<DetalleVenta> detalles = detalleData.listarDetalleVenta();
+             for (DetalleVenta detalle : detalles) {
+                 Object[] row = {detalle.getIdDetalleVenta(), detalle.getVenta(), detalle.getProducto(), detalle.getCantidad(), detalle.getPrecioVenta()};
+                 modeloTabla.addRow(row);
+             }
+         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnGuardarDetalle;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBtnModificar;
     private javax.swing.JComboBox<Producto> jComboProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -383,11 +291,35 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableDetalleVta;
     private javax.swing.JTextField jTextCantidad;
     private javax.swing.JTextField jTextCodigoVta;
     private javax.swing.JTextField jTextPrecio;
     // End of variables declaration//GEN-END:variables
+ private void armarTabla() {
+        modeloTabla = new DefaultTableModel(); //creo un objeto modeloTabla
+        modeloTabla.addColumn("Código de detalle");//armo la cabecera
+        modeloTabla.addColumn("Codigo de Venta");
+        modeloTabla.addColumn("Código de producto");
+        modeloTabla.addColumn("Cantidad");
+        modeloTabla.addColumn("Precio final");
+        jTableDetalleVta.setModel(modeloTabla); //seteo la tabla con los datos nuevos
+    }
 
-    
+    private void vaciarTabla() {
+        for (int i = modeloTabla.getRowCount() - 1; i >= 0; i--) {
+            modeloTabla.removeRow(i);
+        }
+    }//armo metodo por si lo necesito
+
+    private DetalleVenta obtenerDetallesDesdeTabla(int filaSeleccionada) {
+
+        if (filaSeleccionada >= 0 && filaSeleccionada < detalleData.listarDetalleVenta().size()) {
+            return detalleData.listarDetalleVenta().get(filaSeleccionada);
+        } else {
+            JOptionPane.showMessageDialog(null, "error en la fila seleccionada");
+            return null;
+        }
+
+    }
 }

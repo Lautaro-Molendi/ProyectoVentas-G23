@@ -1,23 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectoventasg23.Vistas;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+
 import proyectoventasg23.AccesoADatos.DetalleVentaData;
 import proyectoventasg23.Entidades.Producto;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import proyectoventasg23.Entidades.*;
 
 public class ProductosXventa extends javax.swing.JInternalFrame {
+ 
+    private DefaultTableModel modeloTabla= new DefaultTableModel();
+    public DetalleVentaData detalleData= new DetalleVentaData();
+    public DetalleVenta nuevoDetalle=null;
 
     public ProductosXventa() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +35,7 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
         jTProductos = new javax.swing.JTable();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Busqueda de productos vendidos en una fecha");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
@@ -127,31 +131,25 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
 
     private void jBtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscarActionPerformed
 
-    Date selectedDate = jDateFecha.getDate();
+        Date fecha = jDateFecha.getDate();
+         if (fecha != null) {
+        LocalDate fechaSeleccionada = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-    if (selectedDate != null) {
-        LocalDate fecha = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-        List<Producto> productosVendidos = obtenerProductosVendidosEnFecha(fecha);
-
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID Producto");
-        model.addColumn("Nombre");
-        model.addColumn("Precio");
-
-        for (Producto producto : productosVendidos) {
-            model.addRow(new Object[]{
-                producto.getIdProducto(),
-                producto.getNombreProducto(),
-                producto.getPrecioActual()
-            });
+        List<Producto> productos = detalleData.listarProductosDeVentaEnFecha(fechaSeleccionada);
+         DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Producto");
+            model.addColumn("Nombre");
+            model.addColumn("Precio");
+        
+        for (Producto producto : productos) {
+            model.addRow(new Object[]{producto.getNombreProducto(), producto.getDescripcion(), producto.getPrecioActual()});
         }
-
+        
         jTProductos.setModel(model);
-    } else {
-        JOptionPane.showMessageDialog(null, "Selecciona primero una fecha ");
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona primero una fecha ");
+        }
     }
-}
 
 private List<Producto> obtenerProductosVendidosEnFecha(LocalDate fecha) {
     DetalleVentaData detalleVentaData = new DetalleVentaData();
@@ -167,4 +165,10 @@ private List<Producto> obtenerProductosVendidosEnFecha(LocalDate fecha) {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTProductos;
     // End of variables declaration//GEN-END:variables
-}
+    
+   
+    private void vaciarTabla () {
+        for (int i = modeloTabla.getRowCount()-1; i >=0;i--){
+            modeloTabla.removeRow(i);
+        }}
+   }

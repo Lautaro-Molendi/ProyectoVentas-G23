@@ -50,6 +50,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
+        setResizable(true);
         setTitle("Administracion de ventas");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
@@ -106,7 +107,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         });
 
         jBtnGenerarDet.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBtnGenerarDet.setText("Generar Detalle");
+        jBtnGenerarDet.setText("Generar/ Modificar  Detalle");
         jBtnGenerarDet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnGenerarDetActionPerformed(evt);
@@ -135,15 +136,16 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                                     .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 53, Short.MAX_VALUE)
                                 .addComponent(jBtnModificar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(44, 44, 44)
                                 .addComponent(jBtnEliminar)
-                                .addGap(80, 80, 80)
-                                .addComponent(jBtnGenerarDet))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                                .addGap(44, 44, 44)
+                                .addComponent(jBtnGenerarDet)))))
+                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,11 +163,10 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnModificar)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBtnGenerarDet)
-                        .addComponent(jBtnEliminar)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnGenerarDet)
+                    .addComponent(jBtnEliminar)
+                    .addComponent(jBtnModificar))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -230,7 +231,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
     private void jBtnGenerarDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGenerarDetActionPerformed
         int filaSeleccionada = jTableVta.getSelectedRow();
 
-    if (filaSeleccionada >= 0) {
+        if (filaSeleccionada >= 0) {
         // Obtengo el valor de idVenta de la fila seleccionada
         int idVenta = (int) jTableVta.getValueAt(filaSeleccionada, 0);
 
@@ -239,7 +240,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         menuPpal.escritorio.add(detalleDeVenta);
         detalleDeVenta.setVisible(true);
         detalleDeVenta.moveToFront();
-    }
+    }else{JOptionPane.showMessageDialog(null,"Seleccione una fila para generar detalle");}
     }//GEN-LAST:event_jBtnGenerarDetActionPerformed
     
     public void agregarClientes() {

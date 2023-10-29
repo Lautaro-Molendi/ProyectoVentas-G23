@@ -51,6 +51,7 @@ private Cliente nuevoCliente = new Cliente ();
         jbNuevo = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 

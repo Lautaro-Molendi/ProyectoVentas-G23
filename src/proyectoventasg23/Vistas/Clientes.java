@@ -4,7 +4,7 @@ package proyectoventasg23.Vistas;
 import javax.swing.JOptionPane;
 import proyectoventasg23.AccesoADatos.ClienteData;
 import proyectoventasg23.Entidades.Cliente;
-//FALTA BOTON LIMPIAR CAMPOS
+//FALTA BOTON Borrrar CAMPOS
 //NO RECONOCE ID DE CLIENTE PARA BUSCAR
 
 public class Clientes extends javax.swing.JInternalFrame {
@@ -31,6 +31,8 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jbNuevo = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
         setTitle("Administración de Clientes");
 
         jpEscritorio.setBackground(new java.awt.Color(255, 153, 153));
