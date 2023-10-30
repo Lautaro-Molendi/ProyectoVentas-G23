@@ -52,21 +52,29 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Administracion de ventas");
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setToolTipText("");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelBuscarCliente.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabelBuscarCliente.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarCliente.setText("Buscar código de Cliente");
+        jPanel1.add(jLabelBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 52, -1, -1));
 
         jComboClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboClientesActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 32, 314, 39));
+        jPanel1.add(jDateFechaVta, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 104, 314, 40));
 
         jLabelFechaVta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabelFechaVta.setForeground(new java.awt.Color(0, 0, 0));
         jLabelFechaVta.setText("Ingrese la fecha de venta");
+        jPanel1.add(jLabelFechaVta, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 125, -1, -1));
 
         jBtnRegistrarVenta.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnRegistrarVenta.setText("Guardar Venta");
@@ -75,6 +83,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 jBtnRegistrarVentaActionPerformed(evt);
             }
         });
+        jPanel1.add(jBtnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 188, -1, -1));
 
         jTableVta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jTableVta.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,13 +99,16 @@ public class VistaVentas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableVta);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 238, -1, 94));
+
         jBtnModificar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jBtnModificar.setText("Modificar");
+        jBtnModificar.setText("Modificar venta");
         jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnModificarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
 
         jBtnEliminar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnEliminar.setText("Eliminar");
@@ -105,6 +117,7 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 jBtnEliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 380, -1, -1));
 
         jBtnGenerarDet.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnGenerarDet.setText("Generar/ Modificar  Detalle");
@@ -113,70 +126,13 @@ public class VistaVentas extends javax.swing.JInternalFrame {
                 jBtnGenerarDetActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelBuscarCliente)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabelFechaVta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBtnRegistrarVenta)
-                                    .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 53, Short.MAX_VALUE)
-                                .addComponent(jBtnModificar)
-                                .addGap(44, 44, 44)
-                                .addComponent(jBtnEliminar)
-                                .addGap(44, 44, 44)
-                                .addComponent(jBtnGenerarDet)))))
-                .addGap(56, 56, 56))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelBuscarCliente)
-                    .addComponent(jComboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelFechaVta)
-                    .addComponent(jDateFechaVta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jBtnRegistrarVenta)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnGenerarDet)
-                    .addComponent(jBtnEliminar)
-                    .addComponent(jBtnModificar))
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
+        jPanel1.add(jBtnGenerarDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

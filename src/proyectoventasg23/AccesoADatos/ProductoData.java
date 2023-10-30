@@ -61,7 +61,7 @@ public class ProductoData {
         }
 }
     public void modificarProducto(Producto producto){
-        String sql = "UPDATE producto SET nombreProducto= ?, descripcion= ?, precioActual= ?, stock= ?"
+        String sql = "UPDATE producto SET nombreProducto= ?, descripcion= ?, precioActual= ?, stock= ?, estado=?"
                 + " WHERE idProducto= ? ";
         
         try {
@@ -70,7 +70,8 @@ public class ProductoData {
             ps.setString(2, producto.getDescripcion());
             ps.setDouble (3, producto.getPrecioActual());
             ps.setInt(4, producto.getStock());
-            ps.setInt(5, producto.getIdProducto());
+            ps.setBoolean(5, producto.isEstado());
+            ps.setInt(6, producto.getIdProducto());
             int exito = ps.executeUpdate();
             
             if (exito==1){
@@ -107,8 +108,8 @@ public class ProductoData {
     
   public Producto buscarProducto (int idProducto){
       Producto producto =null;
-    String sql = "SELECT nombreProducto, descripcion, precioActual, stock"
-            + " FROM producto WHERE idProducto = ? AND estado = 1";
+    String sql = "SELECT nombreProducto, descripcion, precioActual, stock, estado"
+            + " FROM producto WHERE idProducto = ? ";
     PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
@@ -120,7 +121,8 @@ public class ProductoData {
             producto.setNombreProducto(rs.getString("nombreProducto"));
             producto.setDescripcion(rs.getString("descripcion"));
             producto.setPrecioActual(rs.getDouble("precioActual"));
-            producto.setStock(rs.getInt("stock"));      
+            producto.setStock(rs.getInt("stock"));  
+            producto.setEstado(rs.getBoolean("estado"));
         } else {
            JOptionPane.showMessageDialog(null, "El producto no existe");
                    }

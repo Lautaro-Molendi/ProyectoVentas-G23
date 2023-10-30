@@ -3,11 +3,9 @@ package proyectoventasg23.Vistas;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import proyectoventasg23.AccesoADatos.DetalleVentaData;
-import proyectoventasg23.AccesoADatos.ProductoData;
-import proyectoventasg23.Entidades.Cliente;
-import proyectoventasg23.Entidades.DetalleVenta;
-import proyectoventasg23.Entidades.Producto;
+import proyectoventasg23.AccesoADatos.*;
+import proyectoventasg23.Entidades.*;
+
 
 public class ClientesXproducto extends javax.swing.JInternalFrame {
 
@@ -25,15 +23,20 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
         jBtnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTClientes = new javax.swing.JTable();
+        jTextDatosProducto = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
         setTitle("Busqueda de clientes que compraron un producto");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel1.setText("Ingrese el producto");
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Ingrese el código de  producto");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(jTextProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 164, -1));
 
         jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jBtnBuscar.setText("Buscar");
@@ -42,6 +45,7 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
                 jBtnBuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
         jTClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,38 +61,8 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
         jTClientes.setToolTipText("");
         jScrollPane1.setViewportView(jTClientes);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel1)
-                        .addGap(30, 30, 30)
-                        .addComponent(jTextProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jBtnBuscar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jBtnBuscar)
-                .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 237, 500, 105));
+        jPanel1.add(jTextDatosProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 490, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +85,13 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
 
         ProductoData productoData = new ProductoData();
         Producto producto = productoData.buscarProducto(idProducto);
+        if (producto != null) {
+                String datosProducto = producto.toString();
+
+                jTextDatosProducto.setText(datosProducto);
+            } else {
+                jTextDatosProducto.setText("Producto no encontrado");
+        }
 
         if (producto != null) {
             DetalleVentaData detalleVentaData = new DetalleVentaData();
@@ -152,6 +133,7 @@ public class ClientesXproducto extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTClientes;
+    private javax.swing.JTextField jTextDatosProducto;
     private javax.swing.JTextField jTextProducto;
     // End of variables declaration//GEN-END:variables
 }

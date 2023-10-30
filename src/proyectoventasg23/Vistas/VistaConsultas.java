@@ -48,9 +48,11 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Consultas");
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jRadProdxVentaFecha.setBackground(new java.awt.Color(255, 153, 153));
         grupoConsulta.add(jRadProdxVentaFecha);
@@ -59,6 +61,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 jRadProdxVentaFechaActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadProdxVentaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 26, -1, -1));
 
         jRadVentaxFecha.setBackground(new java.awt.Color(255, 153, 153));
         grupoConsulta.add(jRadVentaxFecha);
@@ -67,6 +70,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 jRadVentaxFechaActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadVentaxFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 188, -1, -1));
 
         jRadventaxCliente.setBackground(new java.awt.Color(255, 153, 153));
         grupoConsulta.add(jRadventaxCliente);
@@ -75,6 +79,7 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 jRadventaxClienteActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadventaxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 81, 31, -1));
 
         jRadClientesyProd.setBackground(new java.awt.Color(255, 153, 153));
         grupoConsulta.add(jRadClientesyProd);
@@ -83,18 +88,27 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 jRadClientesyProdActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadClientesyProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 133, -1, -1));
 
-        jLBuscarPxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLBuscarPxF.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLBuscarPxF.setForeground(new java.awt.Color(0, 0, 0));
         jLBuscarPxF.setText("Buscar productos por fecha");
+        jPanel1.add(jLBuscarPxF, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 31, -1, -1));
 
-        jLBuscarVxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLBuscarVxC.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLBuscarVxC.setForeground(new java.awt.Color(0, 0, 0));
         jLBuscarVxC.setText("Buscar ventas por cliente");
+        jPanel1.add(jLBuscarVxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 81, -1, -1));
 
-        jLBuscarVxF.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLBuscarVxF.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLBuscarVxF.setForeground(new java.awt.Color(0, 0, 0));
         jLBuscarVxF.setText("Buscar ventas por fecha");
+        jPanel1.add(jLBuscarVxF, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 188, -1, -1));
 
-        jLBuscarCxC.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLBuscarCxC.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLBuscarCxC.setForeground(new java.awt.Color(0, 0, 0));
         jLBuscarCxC.setText("Buscar clientes por producto");
+        jPanel1.add(jLBuscarCxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 133, -1, -1));
 
         jBtnAceptar.setBackground(new java.awt.Color(255, 102, 102));
         jBtnAceptar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -106,76 +120,19 @@ public class VistaConsultas extends javax.swing.JInternalFrame {
                 jBtnAceptarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadventaxCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLBuscarVxC)
-                        .addGap(760, 760, 760))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadProdxVentaFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadClientesyProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadVentaxFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jLBuscarPxF))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLBuscarVxF)
-                                    .addComponent(jLBuscarCxC))))
-                        .addGap(737, 737, 737))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLBuscarPxF)
-                    .addComponent(jRadProdxVentaFecha))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadventaxCliente)
-                    .addComponent(jLBuscarVxC))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadClientesyProd)
-                    .addComponent(jLBuscarCxC))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadVentaxFecha)
-                    .addComponent(jLBuscarVxF))
-                .addGap(37, 37, 37)
-                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        jPanel1.add(jBtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 244, 97, 42));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
         );
 
         pack();

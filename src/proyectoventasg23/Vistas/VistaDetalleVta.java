@@ -58,29 +58,37 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         jBtnEliminar = new javax.swing.JButton();
         jComboProducto = new javax.swing.JComboBox<>();
         jTextCodigoVta = new javax.swing.JTextField();
+        jBtnActualizar = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Detalles de Venta");
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel2.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Código de venta");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 31, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Código de Producto");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 78, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cantidad");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 117, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Precio ");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 159, -1, -1));
 
         jTextCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +100,8 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
                 jTextCantidadKeyPressed(evt);
             }
         });
+        jPanel2.add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 115, 203, -1));
+        jPanel2.add(jTextPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 157, 203, -1));
 
         jBtnGuardarDetalle.setText("Guardar Detalle");
         jBtnGuardarDetalle.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +109,7 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
                 jBtnGuardarDetalleActionPerformed(evt);
             }
         });
+        jPanel2.add(jBtnGuardarDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 217, -1, -1));
 
         jTableDetalleVta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,12 +124,15 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableDetalleVta);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 282, 615, 91));
+
         jBtnModificar.setText("Modificar");
         jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnModificarActionPerformed(evt);
             }
         });
+        jPanel2.add(jBtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 389, -1, -1));
 
         jBtnEliminar.setText("Eliminar");
         jBtnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,85 +140,31 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
                 jBtnEliminarActionPerformed(evt);
             }
         });
+        jPanel2.add(jBtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 389, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboProducto, 0, 203, Short.MAX_VALUE)
-                    .addComponent(jTextCantidad)
-                    .addComponent(jTextPrecio)
-                    .addComponent(jTextCodigoVta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(210, 210, 210))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jBtnGuardarDetalle))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jBtnModificar)
-                        .addGap(106, 106, 106)
-                        .addComponent(jBtnEliminar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextCodigoVta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jBtnGuardarDetalle)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnModificar)
-                    .addComponent(jBtnEliminar))
-                .addGap(22, 22, 22))
-        );
+        jPanel2.add(jComboProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 71, 203, -1));
+        jPanel2.add(jTextCodigoVta, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 29, 197, -1));
+
+        jBtnActualizar.setText("Actualizar Tabla");
+        jBtnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 389, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
+
+        jPanel2.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -268,6 +228,12 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jBtnModificarActionPerformed
+
+    private void jBtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnActualizarActionPerformed
+        vaciarTabla();
+        listarDetallesEnTabla();
+
+    }//GEN-LAST:event_jBtnActualizarActionPerformed
          public void listarDetallesEnTabla() {
 
              while (modeloTabla.getRowCount() > 0) {
@@ -281,6 +247,7 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
          }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnActualizar;
     private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnGuardarDetalle;
     private javax.swing.JButton jBtnModificar;

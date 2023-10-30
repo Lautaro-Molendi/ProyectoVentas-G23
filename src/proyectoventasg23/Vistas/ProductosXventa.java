@@ -36,17 +36,21 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
-        setTitle("Busqueda de productos vendidos en una fecha");
+        setTitle("Busqueda de productos de una venta  en una fecha");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ingrese la fecha");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 82, -1, -1));
 
         jDateFecha.setBackground(new java.awt.Color(204, 204, 204));
         jDateFecha.setForeground(new java.awt.Color(255, 153, 153));
         jDateFecha.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jPanel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 72, 174, -1));
 
         jBtnBuscar.setBackground(new java.awt.Color(255, 102, 102));
         jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -58,12 +62,14 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
                 jBtnBuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 127, 72, 35));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 153, 153));
 
         jTProductos.setBackground(new java.awt.Color(255, 153, 153));
+        jTProductos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 102, 102), new java.awt.Color(255, 102, 102), new java.awt.Color(255, 51, 51), new java.awt.Color(255, 51, 51)));
         jTProductos.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jTProductos.setForeground(new java.awt.Color(51, 51, 51));
+        jTProductos.setForeground(new java.awt.Color(255, 51, 51));
         jTProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -76,50 +82,18 @@ public class ProductosXventa extends javax.swing.JInternalFrame {
             }
         ));
         jTProductos.setToolTipText("");
-        jTProductos.setGridColor(new java.awt.Color(255, 102, 102));
+        jTProductos.setGridColor(new java.awt.Color(204, 0, 51));
         jTProductos.setSelectionBackground(new java.awt.Color(255, 51, 102));
-        jTProductos.setSelectionForeground(new java.awt.Color(255, 153, 153));
+        jTProductos.setSelectionForeground(new java.awt.Color(255, 51, 102));
         jScrollPane1.setViewportView(jTProductos);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel1)
-                        .addGap(39, 39, 39)
-                        .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(26, 26, 26)
-                .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 193, 540, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
