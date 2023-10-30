@@ -241,7 +241,7 @@ public class VistaDetalleVta extends javax.swing.JInternalFrame {
              }
              List<DetalleVenta> detalles = detalleData.listarDetalleVenta();
              for (DetalleVenta detalle : detalles) {
-                 Object[] row = {detalle.getIdDetalleVenta(), detalle.getVenta(), detalle.getProducto(), detalle.getCantidad(), detalle.getPrecioVenta()};
+                 Object[] row = {detalle.getIdDetalleVenta(), detalle.getVenta().getIdVenta(), detalle.getProducto().getIdProducto(), detalle.getCantidad(), detalle.getPrecioVenta()};
                  modeloTabla.addRow(row);
              }
          }
